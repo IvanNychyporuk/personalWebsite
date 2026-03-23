@@ -1,12 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
 const TO_EMAIL = "nychyporuk.ivan.vfx@gmail.com";
 
 function isLikelyEmail(email: string) {
-  // Intentionally simple: enough to catch obvious mistakes.
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
@@ -16,40 +15,27 @@ export function ContactForm() {
   const [message, setMessage] = useState("");
   const [hp, setHp] = useState("");
   const [error, setError] = useState<string>("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  const mailto = useMemo(() => {
-    const safeName = name.trim();
-    const safeEmail = fromEmail.trim();
-    const subjectParts = ["Website contact"];
-    if (safeName) subjectParts.push(safeName);
-    if (safeEmail) subjectParts.push(`<${safeEmail}>`);
-    const subject = subjectParts.join("  ");
-    const body = [
-      safeName ? `Name: ${safeName}` : null,
-      safeEmail ? `Email: ${safeEmail}` : null,
-      "",
-      message.trim(),
-    ]
-      .filter((v) => v !== null)
-      .join("\n");
-
-    return `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-  }, [fromEmail, message, name]);
+  if (sent) {
+    return (
+      <div className={styles.form}>
+        <p className={styles.note}>
+          Message sent — thank you! I will get back to you soon.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form
       className={styles.form}
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
         setError("");
 
-        // Honeypot for basic spam reduction.
-        if (hp.trim()) {
-          setError("Please remove the hidden field value and try again.");
-          return;
-        }
+        if (hp.trim()) return;
 
         if (!isLikelyEmail(fromEmail)) {
           setError("Please enter a valid email address.");
@@ -61,8 +47,24 @@ export function ContactForm() {
           return;
         }
 
-        // No server-side sending yet: open the user's email client.
-        window.location.href = mailto;
+        setSending(true);
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email: fromEmail, message, honeypot: hp }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            setError(data.error || "Something went wrong. Please try again.");
+          } else {
+            setSent(true);
+          }
+        } catch {
+          setError("Something went wrong. Please try again.");
+        } finally {
+          setSending(false);
+        }
       }}
       noValidate
     >
@@ -134,14 +136,13 @@ export function ContactForm() {
         </p>
       ) : (
         <p className={styles.note}>
-          This form opens your email app with a pre-filled message (no data is
-          stored on the website yet).
+          Your message will be sent directly to my inbox.
         </p>
       )}
 
       <div className={styles.actions}>
-        <button type="submit" className="button buttonPrimary">
-          Send message
+        <button type="submit" className="button buttonPrimary" disabled={sending}>
+          {sending ? "Sending…" : "Send message"}
         </button>
         <a className="button" href={`mailto:${TO_EMAIL}`}>
           Email directly
