@@ -26,11 +26,10 @@ A consistent character ("Mila") anchors the entire spot. Continuity is achieved 
 - **Variability is key:** lighting and colour palette may shift; anatomy, silhouette and props stay locked
 - **Prompt hygiene:** precise descriptions; no contradictions; max 1–2 central props
 
-> *"Mila, late-20s café server; fair skin with light freckles across nose; hazel eyes; chestnut-brown hair in a low ponytail with a few baby hairs; subtle natural makeup; oval face; small silver stud earrings and thin chain necklace; brown leather watch on right wrist; crisp white oxford shirt, sleeves rolled; navy cotton apron tied in a center knot; calm, kind, attentive; signature details: tiny beauty mark under left cheekbone; slightly frayed apron strap; gentle, reassuring smile."*
-
-<div style={{display:'flex',justifyContent:'center',gap:'24px',margin:'16px 0'}}>
-  <img src="/projects/kimuva/character-01.jpg" alt="Character reference – Mila, portrait 1" style={{height:'360px',width:'auto',flexShrink:0,objectFit:'cover'}} />
-  <img src="/projects/kimuva/character-02.jpg" alt="Character reference – Mila, portrait 2" style={{height:'360px',width:'auto',flexShrink:0,objectFit:'cover'}} />
+<div style={{display:'grid',gridTemplateColumns:'1fr 1.2fr 1fr',gap:'24px',margin:'16px 0',alignItems:'center'}}>
+  <img src="/projects/kimuva/character-01.jpg" alt="Character reference – Mila, portrait 1" style={{width:'100%'}} />
+  <p style={{fontStyle:'italic',lineHeight:'1.7',fontSize:'13px',margin:0}}>"Mila, late-20s café server; fair skin with light freckles across nose; hazel eyes; chestnut-brown hair in a low ponytail with a few baby hairs; subtle natural makeup; oval face; small silver stud earrings and thin chain necklace; brown leather watch on right wrist; crisp white oxford shirt, sleeves rolled; navy cotton apron tied in a center knot; calm, kind, attentive; signature details: tiny beauty mark under left cheekbone; slightly frayed apron strap; gentle, reassuring smile."</p>
+  <img src="/projects/kimuva/character-02.jpg" alt="Character reference – Mila, portrait 2" style={{width:'100%'}} />
 </div>
 
 ## Cinematography Prompt — Opening Shot
@@ -38,8 +37,14 @@ A consistent character ("Mila") anchors the entire spot. Continuity is achieved 
 The opening shot is generated from a single fully-specified prompt. Two generated outputs from the same prompt:
 
 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
-  <img src="/projects/kimuva/cafe-door-before.jpg" alt="Café door – generated output A" style={{height:'420px',objectFit:'cover'}} />
-  <img src="/projects/kimuva/cafe-door-after.jpg" alt="Café door – generated output B" style={{height:'420px',objectFit:'cover'}} />
+  <div>
+    <img src="/projects/kimuva/cafe-door-before.jpg" alt="Café door – draft" style={{width:'100%',height:'420px',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Draft</p>
+  </div>
+  <div>
+    <img src="/projects/kimuva/cafe-door-after.jpg" alt="Café door – improved version" style={{width:'100%',height:'420px',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Improved version</p>
+  </div>
 </div>
 
 **Prompt (excerpt):** *Wide Shot through closed café double-door glass from the street. Straight-on, eye level. 50 mm spherical, f/2, 1/100, ISO 200, Pro-Mist 1/8, CPL. Interior 2700K warm amber vs exterior 5600K cool blue/gray. Negative: teal door, bright daytime sun, oversized sign blocking face, motion blur, hands on counter outside.*

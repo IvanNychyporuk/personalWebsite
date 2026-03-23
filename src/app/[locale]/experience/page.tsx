@@ -8,7 +8,7 @@ type TimelineItem = {
   dates: string;
   title: string;
   place: string;
-  type: "role" | "education" | "training";
+  type: "role" | "training" | "language" | "degree";
   bullets: string[];
 };
 
@@ -35,7 +35,7 @@ const TIMELINE_EN: TimelineItem[] = [
     dates: "08/2024 – 03/2025",
     title: "German language qualification",
     place: "Burgerservice, Trier",
-    type: "education",
+    type: "language",
     bullets: ["Completed B1."],
   },
   {
@@ -99,15 +99,106 @@ const TIMELINE_EN: TimelineItem[] = [
     dates: "09/2001 – 02/2007",
     title: "Electrical Engineering (Dipl.-Ing.)",
     place: "Technical University of Kyiv (Ukraine)",
-    type: "education",
+    type: "degree",
     bullets: ["Diploma engineer degree (comparable to a German master level)."],
   },
 ];
 
-const TYPE_LABEL: Record<TimelineItem["type"], string> = {
-  role: "Role",
-  education: "Education",
-  training: "Training",
+const TIMELINE_DE: TimelineItem[] = [
+  {
+    dates: "09/2025 – 03/2026",
+    title: "KI Medien- und Content Gestalter (AI Media & Content Designer)",
+    place: "WBS Training, Trier (Deutschland)",
+    type: "training",
+    bullets: [
+      "Vollzeit-Zertifizierungsprogramm für KI-gestützte Medienproduktion und Contentgestaltung.",
+      "Lehrplan: KI-Projektkonzeption & -entwicklung, KI in der Medienentwicklung, KI-Texterstellung, KI-Bild- & Videobearbeitung, Audio- & Musikproduktion mit KI, Social-Media-Marketing, Webentwicklung, Computeranimation, Projektmanagement, KI-Ethik und rechtliche Aspekte.",
+      "Praxis mit Tools wie ChatGPT, DALL-E, Claude Code, Adobe CC, Figma und KI-Workflow-Automatisierung.",
+    ],
+  },
+  {
+    dates: "04/2025 – heute",
+    title: "Adobe Photoshop (fortgeschritten)",
+    place: "Udemy (online)",
+    type: "training",
+    bullets: ["Fortgeschrittenes Compositing, Retusche und Workflows für Print-/Digitaldesign."],
+  },
+  {
+    dates: "08/2024 – 03/2025",
+    title: "Deutschsprachliche Qualifikation",
+    place: "Burgerservice, Trier",
+    type: "language",
+    bullets: ["Abschluss B1."],
+  },
+  {
+    dates: "05/2023 – 06/2024",
+    title: "Nuke Compositing Artist (remote)",
+    place: "UPP Postproduction Studio (Prag, Tschechische Republik)",
+    type: "role",
+    bullets: [
+      "Optimierung und Veredelung von Live-Action-Material für die finale Auslieferung.",
+      "Digitales Clean-up, Retusche und Beauty-Bearbeitung.",
+      "Green/Blue-Screen-Replacement mit fotorealistischen Hintergründen.",
+      "Integration von VFX-Elementen (Rauch, Feuer, Explosionen) und 3D-Assets.",
+      "Zusammenarbeit mit VFX-Supervisors und Produktionsteams; Feedback-Iterationen und Qualitätskontrolle.",
+      "Credits u. a.: Gran Turismo (2023), Carry On (2024) (Streaming-Releases).",
+    ],
+  },
+  {
+    dates: "05/2022 – 04/2023",
+    title: "Fusion Compositing Artist (hybrid)",
+    place: "LuxDigital Studio (Kehlen, Luxemburg)",
+    type: "role",
+    bullets: [
+      "Clean-up, Retusche und digitales Make-up.",
+      "Keying und Hintergrundersatz mit Farb- und Lichtabstimmung.",
+      "Integration von 3D-Elementen mit präziser Look-Kontinuität.",
+      "Arbeitsaufwandschätzungen und Unterstützung mehrstufiger Abnahmeprozesse.",
+    ],
+  },
+  {
+    dates: "05/2018 – 02/2022",
+    title: "Compositing Artist (Vollzeit)",
+    place: "Postmodern Digital (Kiew, Ukraine)",
+    type: "role",
+    bullets: [
+      "Visual Effects für Film und TV innerhalb etablierter Pipelines.",
+      "Zusammenarbeit mit internationalen Teams (China, Russland, Europa).",
+      "Projekte: The Wandering Earth, Robot 2.0, Pulse, Cosmoball.",
+    ],
+  },
+  {
+    dates: "09/2017 – 02/2022",
+    title: "Freelance Compositing Artist (Werbung + TV)",
+    place: "Kiew, Ukraine",
+    type: "role",
+    bullets: [
+      "Werbe-VFX, animierte Overlays, Look Development.",
+      "Kampagnen für Marken wie Coca-Cola, Milka, Auchan, Roshen, Vodafone.",
+    ],
+  },
+  {
+    dates: "04/2009 – 07/2018",
+    title: "Director of Photography / Kameramann",
+    place: "Ukraine",
+    type: "role",
+    bullets: [
+      "Musikvideos, Dokumentarfilme und TV-Produktionen.",
+      "Bindeglied zwischen Regie und Postproduktion für konsistentes visuelles Storytelling.",
+    ],
+  },
+  {
+    dates: "09/2001 – 02/2007",
+    title: "Elektrotechnik (Dipl.-Ing.)",
+    place: "Technische Universität Kiew (Ukraine)",
+    type: "degree",
+    bullets: ["Diplomingenieur-Abschluss (vergleichbar mit einem deutschen Masterabschluss)."],
+  },
+];
+
+const TYPE_LABEL: Record<string, Record<TimelineItem["type"], string>> = {
+  en: { role: "Role", training: "Training", language: "Language", degree: "Degree" },
+  de: { role: "Position", training: "Weiterbildung", language: "Sprachkurs", degree: "Studium" },
 };
 
 export default async function ExperiencePage({
@@ -120,18 +211,22 @@ export default async function ExperiencePage({
   if (!isLocale(locale)) return null;
   const dict = await getDictionary(locale as Locale);
 
-  const timeline = locale === "en" ? TIMELINE_EN : [];
+  const timeline = locale === "de" ? TIMELINE_DE : TIMELINE_EN;
+  const labels = TYPE_LABEL[locale] ?? TYPE_LABEL.en;
+
+  const title = locale === "de" ? "Erfahrung" : "Experience";
+  const lead =
+    locale === "de"
+      ? "15+ Jahre in VFX-Compositing, Werbung und Kinematografie. Jetzt fokussiert auf KI-Medien, Contentgestaltung und Workflow-Integration."
+      : "15+ years across VFX compositing, advertising, and cinematography. Now focused on AI media, content design, and workflow integration.";
 
   return (
     <main className={styles.page}>
       <div className="container">
         <header className={styles.header}>
           <p className="kicker">{dict.nav.experience}</p>
-          <h1 className={styles.title}>Experience</h1>
-          <p className={styles.lead}>
-            15+ years across VFX compositing, advertising, and cinematography.
-            Now focused on AI media, content design, and workflow integration.
-          </p>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.lead}>{lead}</p>
         </header>
 
         <div className={styles.grid}>
@@ -140,7 +235,7 @@ export default async function ExperiencePage({
               {timeline.map((item) => (
                 <li key={`${item.dates}:${item.title}`} className={expStyles.entry}>
                   <span className={`${expStyles.badge} ${expStyles[item.type]}`}>
-                    {TYPE_LABEL[item.type]}
+                    {labels[item.type]}
                   </span>
                   <div className={expStyles.meta}>
                     <strong className={expStyles.dates}>{item.dates}</strong>

@@ -8,7 +8,7 @@
 
 .entry {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 120px 1fr;
   grid-template-rows: auto auto;
   column-gap: 16px;
   row-gap: 6px;
@@ -46,14 +46,19 @@
   color: var(--tm);
 }
 
-.education {
+.training {
+  background: rgba(100, 140, 180, 0.18);
+  color: #2a5070;
+}
+
+.language {
   background: rgba(140, 170, 120, 0.18);
   color: #4a6a38;
 }
 
-.training {
-  background: rgba(100, 140, 180, 0.18);
-  color: #2a5070;
+.degree {
+  background: rgba(160, 120, 180, 0.18);
+  color: #5a3a70;
 }
 
 /* Meta (dates + title + place) sits in column 2, row 1 */

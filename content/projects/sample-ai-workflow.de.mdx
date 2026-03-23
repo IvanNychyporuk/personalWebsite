@@ -131,9 +131,16 @@ Typische KI-Artefakte und deren Korrektur mit Fireflyʼs generativer Füllung (�
 
 Sekundärer Output: Die realistischen Bilder wurden mit DALL-E in einen Aquarellstil überführt. Der Master-Prompt entstand durch Vergleich eines realistischen Referenzbildes mit einem aquarellierten Remix. Komposition und Farbpalette bleiben erhalten.
 
-<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
-  <img src="/projects/kibild/watercolor-reference.jpg" alt="Realistisches Referenzbild" style={{objectFit:'cover'}} />
-  <img src="/projects/kibild/watercolor-pair.jpg" alt="Aquarell-Version" style={{objectFit:'cover'}} />
+<div style={{display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:'16px',margin:'16px 0',alignItems:'center'}}>
+  <div>
+    <img src="/projects/kibild/expo2-01.jpg" alt="Realistisches Referenzbild" style={{width:'100%',aspectRatio:'3/2',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Originalfoto</p>
+  </div>
+  <div style={{fontSize:'28px',color:'var(--tm)',textAlign:'center',lineHeight:1,padding:'0 4px'}}>→</div>
+  <div>
+    <img src="/projects/kibild/expo3-04.jpg" alt="Aquarell-Version" style={{width:'100%',aspectRatio:'3/2',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Aquarell-Remix</p>
+  </div>
 </div>
 
 Remix-Pipeline — drei Input/Output-Paare:

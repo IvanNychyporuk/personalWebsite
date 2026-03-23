@@ -9,6 +9,22 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import ImageCarousel from "@/components/ImageCarousel";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 
+function MdxImg(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+  const { style, ...rest } = props;
+  return (
+    <img
+      {...rest}
+      style={{
+        maxWidth: "100%",
+        height: "auto",
+        borderRadius: "8px",
+        display: "block",
+        ...style,
+      }}
+    />
+  );
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -26,8 +42,9 @@ export default async function ProjectPage({
 
   const compiled = await compileMDX({
     source: project.source,
-    components: { ImageCarousel, YouTubeEmbed },
+    components: { ImageCarousel, YouTubeEmbed, img: MdxImg },
     options: {
+      blockJS: false,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
       },

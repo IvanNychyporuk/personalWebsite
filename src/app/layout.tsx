@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Sans } from "next/font/google";
+import { Fraunces, IBM_Plex_Sans, Libre_Caslon_Display } from "next/font/google";
 import { headers } from "next/headers";
 import { BlobBackground } from "@/components/BlobBackground";
 import "./globals.css";
@@ -14,6 +14,12 @@ const serif = Fraunces({
   subsets: ["latin"],
   weight: ["600", "700"],
   variable: "--font-serif",
+});
+
+const display = Libre_Caslon_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +41,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${sans.variable} ${serif.variable}`}>
+      <body className={`${sans.variable} ${serif.variable} ${display.variable}`}>
         {/* Animated interactive blob background */}
         <BlobBackground />
         <div className="pageRoot">{children}</div>

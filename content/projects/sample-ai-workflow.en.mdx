@@ -131,9 +131,16 @@ Common AI artefacts and how they were corrected using Firefly's generative fill 
 
 A secondary output: the realistic images were re-processed into a watercolour style using DALL-E. The master prompt was derived by comparing a realistic reference and a watercolour-styled remix. Composition and colour palette are preserved.
 
-<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
-  <img src="/projects/kibild/watercolor-reference.jpg" alt="Realistic reference image" style={{objectFit:'cover'}} />
-  <img src="/projects/kibild/watercolor-pair.jpg" alt="Watercolour styled version" style={{objectFit:'cover'}} />
+<div style={{display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:'16px',margin:'16px 0',alignItems:'center'}}>
+  <div>
+    <img src="/projects/kibild/expo2-01.jpg" alt="Realistic reference image" style={{width:'100%',aspectRatio:'3/2',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Original photo</p>
+  </div>
+  <div style={{fontSize:'28px',color:'var(--tm)',textAlign:'center',lineHeight:1,padding:'0 4px'}}>→</div>
+  <div>
+    <img src="/projects/kibild/expo3-04.jpg" alt="Watercolour styled version" style={{width:'100%',aspectRatio:'3/2',objectFit:'cover'}} />
+    <p style={{fontSize:'12px',color:'var(--tm)',margin:'6px 0 0',textAlign:'center',fontWeight:500}}>Watercolour remix</p>
+  </div>
 </div>
 
 Re-mixing pipeline — three input/output pairs:

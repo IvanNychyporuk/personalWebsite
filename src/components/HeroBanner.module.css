@@ -54,9 +54,10 @@
 }
 
 .title {
-  font-family: var(--font-serif);
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
   font-size: clamp(30px, 3vw, 40px);
   margin: 0;
   white-space: pre-line;
