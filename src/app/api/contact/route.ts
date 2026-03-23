@@ -21,6 +21,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Message is too short." }, { status: 400 });
   }
 
+  if (message.length > 2000) {
+    return NextResponse.json({ error: "Message is too long (max 2000 characters)." }, { status: 400 });
+  }
+
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: TO_EMAIL,

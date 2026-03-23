@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# design-restore.sh — Restore CSS design files from a versioned backup
+# design-restore.sh — Restore CSS + key TSX files + MDX project content from a versioned backup
 # Usage: bash scripts/design-restore.sh <version>   e.g.  bash scripts/design-restore.sh v02
 # Run from: web/
 
@@ -53,6 +53,27 @@ for cfg in postcss.config.mjs; do
     echo "  restored: $cfg"
   fi
 done
+
+# ── Restore key TSX files (if backed up) ─────────────────────────────────────
+if [[ -d "$backup_dir/src" ]]; then
+  find "$backup_dir/src" -name "*.tsx" -o -name "*.ts" | while read -r file; do
+    rel="${file#$backup_dir/}"
+    dest_file="$rel"
+    mkdir -p "$(dirname "$dest_file")"
+    cp "$file" "$dest_file"
+    echo "  restored: $dest_file"
+  done
+fi
+
+# ── Restore MDX project content files (if backed up) ─────────────────────────
+if [[ -d "$backup_dir/content/projects" ]]; then
+  mkdir -p "content/projects"
+  find "$backup_dir/content/projects" -name "*.mdx" | while read -r file; do
+    filename="$(basename "$file")"
+    cp "$file" "content/projects/$filename"
+    echo "  restored: content/projects/$filename"
+  done
+fi
 
 echo ""
 echo "✓ Restore complete. Restart your dev server to see the changes."

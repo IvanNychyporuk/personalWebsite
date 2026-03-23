@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./ContactForm.module.css";
 
 const TO_EMAIL = "nychyporuk.ivan.vfx@gmail.com";
+const MESSAGE_MAX = 2000;
 
 function isLikelyEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -44,6 +45,11 @@ export function ContactForm() {
 
         if (message.trim().length < 10) {
           setError("Please add a bit more detail to your message.");
+          return;
+        }
+
+        if (message.length > MESSAGE_MAX) {
+          setError(`Message is too long. Please keep it under ${MESSAGE_MAX} characters.`);
           return;
         }
 
@@ -113,10 +119,14 @@ export function ContactForm() {
           className={styles.textarea}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          maxLength={MESSAGE_MAX}
           required
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? "contact-error" : undefined}
         />
+        <p className={`${styles.counter} ${message.length > MESSAGE_MAX * 0.9 ? styles.counterWarn : ""}`}>
+          {message.length} / {MESSAGE_MAX}
+        </p>
       </div>
 
       <div className={styles.hidden} aria-hidden="true">
