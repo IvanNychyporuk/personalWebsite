@@ -1,0 +1,107 @@
+.page {
+  padding: calc(var(--header-h) + 28px) 0 0;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  letter-spacing: -0.03em;
+  margin: 10px 0 10px;
+  color: var(--tp);
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  color: var(--tm);
+  font-size: 12px;
+}
+
+.summary {
+  margin: 0;
+  color: var(--ts);
+  line-height: 1.7;
+}
+
+.content {
+  margin-top: 18px;
+}
+
+.mdx {
+  padding: 18px;
+}
+
+.mdx h2 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+  color: var(--tp);
+}
+
+.mdx p {
+  color: var(--ts);
+  line-height: 1.75;
+  margin: 10px 0;
+}
+
+.mdx ul {
+  color: var(--ts);
+  line-height: 1.75;
+}
+
+.mdx code {
+  font-size: 0.95em;
+  background: rgba(120, 70, 20, 0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--tp);
+}
+
+.mdx img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.mdx table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 16px 0;
+}
+
+.mdx th,
+.mdx td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 0.5px solid var(--cb);
+  color: var(--ts);
+  line-height: 1.5;
+}
+
+.mdx th {
+  font-weight: 600;
+  color: var(--tm);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 980px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "home": "Start",
+    "projects": "Projekte",
+    "experience": "Erfahrung",
+    "skills": "Skills",
+    "contact": "Kontakt",
+    "impressum": "Impressum",
+    "aiAssistant": "KI Assistent"
+  },
+  "home": {
+    "heroKicker": "KI, Mediengestaltung und Integration",
+    "heroTitle": "Deutsche Version kommt bald.\nEnglish is available under /en.",
+    "heroLead": "Diese Seite wird spaeter vollstaendig auf Deutsch verfuegbar sein.",
+    "heroCtaPrimary": "Projekte ansehen",
+    "heroCtaSecondary": "Kontakt",
+    "highlightsKicker": "Highlights",
+    "highlightsTitle": "Uebersicht",
+    "capabilitiesKicker": "Was ich mache",
+    "capabilitiesTitle": "Leistungen",
+    "processKicker": "Prozess",
+    "processTitle": "Ablauf",
+    "contactKicker": "Kontakt",
+    "contactTitle": "Kontakt"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lead": "Bitte nutzen Sie vorerst die englische Version oder kontaktieren Sie mich per E-Mail oder LinkedIn."
+  },
+  "aiAssistant": {
+    "title": "KI Assistent",
+    "lead": "Hier wird spaeter ein Chatbot eingebunden.",
+    "placeholderTitle": "Bald verfuegbar",
+    "placeholderBody": "Platzhalter fuer die Chatbot-Oberflaeche. Bitte kontaktieren Sie mich per E-Mail oder LinkedIn."
+  },
+  "impressum": {
+    "title": "Impressum",
+    "placeholder": "Impressum-Inhalte werden hinzugefuegt, sobald die erforderlichen Angaben vorliegen."
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "placeholder": "Datenschutz-Inhalte werden hinzugefuegt, sobald die erforderlichen Angaben vorliegen."
+  }
+}

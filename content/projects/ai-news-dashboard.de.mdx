@@ -1,0 +1,126 @@
+---
+title: "Persönliches KI-News-Dashboard"
+year: 2026
+tags: ["web", "workflow", "saas"]
+summary: "Ein persönliches News-Dashboard mit Google AI Studio — dokumentiert drei Entwicklungsphasen: reiner AI-Studio-Prototyp, direkter API-Aufruf gescheitert an CORS und Key-Offenlegung, und die finale sichere Architektur mit einem Cloudflare Worker als serverlosem Proxy."
+---
+
+## Kontext
+
+KIWEBE ist ein persönliches News-Dashboard, das echte Artikel zu frei wählbaren Themen anzeigt. Das Projekt dokumentiert den vollständigen Entwicklungsweg — einschließlich der Fehlversuche — vom reinen AI-Studio-Prototyp bis zur produktionsreifen Architektur mit sicherer API-Key-Verwaltung.
+
+**Verwendete Tools:** Google AI Studio · NewsAPI.org · Cloudflare Workers
+
+## Phase 1 — Nur AI Studio (Erster Versuch)
+
+<img src="/projects/kiwebe/phase1-ui.png" alt="Phase 1 – AI Studio App UI" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+**Was wir versucht haben:** Die komplette App ausschließlich innerhalb von Google AI Studio Apps zu erstellen und generierte „Original-Artikel-Links" direkt in den Topic-Cards zu verwenden.
+
+**Was wir beobachtet haben:** Die Links sahen in der UI korrekt aus, waren aber Platzhalter- bzw. Mock-Daten — keine Verbindung zu einer echten Nachrichtenquelle.
+
+**Zentrales Problem:** Ohne einen echten Datenanbieter kann die App keine verlässlichen Artikel-URLs oder Bilder erzeugen.
+
+**Was wir als Nächstes brauchten:** Einen realen News-Feed, der strukturierte Felder zurückliefert:
+
+```
+title · description · url · urlToImage · publishedAt · source
+```
+
+## Phase 2 — Direkte Frontend-API-Anfrage (und warum das nicht funktioniert hat)
+
+**Versuch:** Das Frontend (AI-Studio-Web-App) ruft News-Daten direkt von einem externen Anbieter ab.
+
+**Zwei zentrale Blocker:**
+
+| Problem | Detail |
+|---------|--------|
+| **API-Key-Offenlegung** | Browser-Anfragen können API-Keys preisgeben (DevTools, Network-Logs, kopierte URLs) |
+| **CORS** | Viele Drittanbieter-APIs erlauben keine direkten Browser-Aufrufe von beliebigen Origins — der Browser blockiert die Antwort, wenn der Server keine passenden CORS-Header setzt (client-seitig nicht lösbar) |
+
+**Warum NewsAPI.org:** Schneller Zugriff auf echte Artikelobjekte für Tests (Headlines-/Search-Endpunkte, JSON-Format), einfache API-Key-Authentifizierung via `X-Api-Key` Header.
+
+**Wichtige Einschränkung:** Der NewsAPI Developer Plan ist ausdrücklich nur für Entwicklung und Tests vorgesehen — nicht erlaubt für Staging- oder Produktivbetrieb.
+
+## Phase 3 — Warum wir Cloudflare hinzugefügt haben
+
+<img src="/projects/kiwebe/phase3-cloudflare.jpeg" alt="Phase 3 – Cloudflare Worker Proxy-Architektur" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+Ein **Cloudflare Worker** wurde als schlanker serverloser Proxy eingeführt. Drei Aufgaben:
+
+1. **Den NewsAPI-Key schützen** — Speicherung des API-Keys als Worker-Secret (typischer Anwendungsfall für Worker-Secrets)
+2. **CORS-Probleme im Browser lösen** — der Worker setzt die erforderlichen CORS-Header und verarbeitet Preflight-Requests, sodass das Frontend die Antworten lesen kann
+3. **Optional: Caching & Kontingentschutz** — kurzzeitiges Caching häufiger Anfragen reduziert wiederholte Requests an NewsAPI: schnellere Antworten und geringerer API-Verbrauch
+
+## Finaler Request-Flow
+
+<img src="/projects/kiwebe/phase5-flow.jpeg" alt="Finaler Request-Flow – Frontend zu Cloudflare zu NewsAPI" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+**Schritt für Schritt:**
+
+1. **Frontend (AI Studio App)** ruft unseren Endpoint auf:
+   `GET https://<worker-domain>/news?q=<topic>`
+
+2. **Cloudflare Worker:**
+   - Liest den Query-Parameter (`q`)
+   - Ruft den passenden NewsAPI-Endpunkt auf (`/v2/everything` oder `/v2/top-headlines`)
+   - Fügt den API-Key serverseitig über den `X-Api-Key` Header hinzu
+   - Gibt JSON-Daten inklusive CORS-Headern zurück, sodass der Browser die Antwort akzeptiert
+
+3. **Frontend rendert echte Daten:**
+   - Topic-Cards verwenden eine echte `url` (öffnet den Artikel)
+   - `urlToImage` zeigt das Artikelbild an
+
+**Ergebnis:** Keine Fake-Links mehr · echte Artikel für Entwicklungstests · sichere API-Key-Verwaltung · funktionierender Browser-Zugriff trotz CORS
+
+## Webseitenliste
+
+Konfigurierte Quellen im Dashboard, nach Kategorie geordnet:
+
+**Allgemeine / Internationale Nachrichten**
+
+| Quelle | Domain | Source ID |
+|--------|--------|-----------|
+| BBC News | bbc.com | `bbc-news` |
+| CNN | cnn.com | `cnn` |
+| Al Jazeera English | aljazeera.com | `al-jazeera-english` |
+| ABC News (USA) | abcnews.go.com | `abc-news` |
+
+**Wirtschaft & Finanzen**
+
+| Quelle | Domain | Source ID |
+|--------|--------|-----------|
+| Bloomberg | bloomberg.com | `bloomberg` |
+| Business Insider | businessinsider.com | `business-insider` |
+| Financial Times | ft.com | `financial-times` |
+
+**Technologie & Innovation**
+
+| Quelle | Domain | Source ID |
+|--------|--------|-----------|
+| TechCrunch | techcrunch.com | `techcrunch` |
+| The Verge | theverge.com | `the-verge` |
+| Engadget | engadget.com | `engadget` |
+| Ars Technica | arstechnica.com | `ars-technica` |
+
+**EU- / Europa-orientierte Medien**
+
+| Quelle | Domain | Source ID |
+|--------|--------|-----------|
+| Politico | politico.com | `politico` |
+| The Guardian | theguardian.com | `the-guardian-uk` |
+| Le Monde | lemonde.fr | `le-monde` |
+
+## DSGVO / Datenschutz (Anlage)
+
+<img src="/projects/kiwebe/gdpr.jpeg" alt="DSGVO-Datenschutzkarte" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+Eine eigene Datenschutzkarte ist für Deutschland / EU vorgeschrieben. Inhalte:
+
+- Datenschutzerklärung (als PDF oder verlinkte Seite)
+- Impressum (gesetzlich vorgeschrieben in Deutschland)
+- Datenkontrollen: *„Datenexport anfordern"* · *„Gespeicherte Daten löschen"*
+- Kontakt / Verantwortliche Stelle / Kontakt-E-Mail
+- Versionierung: `Stand: JJJJ-MM-TT` + optionales Änderungsprotokoll
+
+**Platzierung (2-Klick-Regel):** Startseite → Einstellungen → Datenschutz & Recht → Datenschutz & DSGVO

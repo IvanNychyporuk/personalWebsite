@@ -1,0 +1,126 @@
+---
+title: "Personal AI News Dashboard"
+year: 2026
+tags: ["web", "workflow", "saas"]
+summary: "A personal news dashboard built with Google AI Studio — documenting three development phases: pure AI Studio prototype, direct API call failure due to CORS and key exposure, and the final secure architecture using a Cloudflare Worker as a serverless proxy."
+---
+
+## Context
+
+KIWEBE is a personal news dashboard app that surfaces real articles across customisable topics. The project documents the full development journey — including the failures — from a pure AI Studio prototype to a production-ready architecture with secure API key handling.
+
+**Tools used:** Google AI Studio · NewsAPI.org · Cloudflare Workers
+
+## Phase 1 — AI Studio Only (First Attempt)
+
+<img src="/projects/kiwebe/phase1-ui.png" alt="Phase 1 – AI Studio app UI" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+**What we tried:** Build the complete app exclusively inside Google AI Studio Apps, using generated "original article links" directly in the topic cards.
+
+**What we observed:** The links looked correct in the UI but were placeholder / mock data — no connection to a real news source.
+
+**Core problem:** Without a real data provider, the app cannot generate reliable article URLs or images.
+
+**What we needed next:** A real news feed returning structured fields:
+
+```
+title · description · url · urlToImage · publishedAt · source
+```
+
+## Phase 2 — Direct Frontend API Call (and Why It Failed)
+
+**Attempt:** Have the frontend (AI Studio web app) fetch news data directly from an external provider.
+
+**Two blockers:**
+
+| Problem | Detail |
+|---------|--------|
+| **API key exposure** | Browser requests can leak API keys via DevTools, network logs, or copied URLs |
+| **CORS** | Many third-party APIs block direct browser requests from arbitrary origins — the browser rejects the response if the server doesn't set the correct CORS headers (not fixable client-side) |
+
+**Why NewsAPI.org:** Fast access to real article objects for testing (headlines/search endpoints, JSON format), simple API key auth via `X-Api-Key` header.
+
+**Important constraint:** The NewsAPI Developer Plan is explicitly for development and testing only — not permitted for staging or production use.
+
+## Phase 3 — Why Cloudflare Was Added
+
+<img src="/projects/kiwebe/phase3-cloudflare.jpeg" alt="Phase 3 – Cloudflare Worker proxy architecture" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+A **Cloudflare Worker** was introduced as a lightweight serverless proxy. Three responsibilities:
+
+1. **Protect the NewsAPI key** — store the API key as a Worker Secret (the standard use case for Worker Secrets)
+2. **Solve CORS in the browser** — the Worker sets the required CORS headers and handles preflight requests so the frontend can read responses
+3. **Optional: caching & quota protection** — short-term caching of frequent requests reduces repeated calls to NewsAPI, resulting in faster responses and lower API usage
+
+## Final Request Flow
+
+<img src="/projects/kiwebe/phase5-flow.jpeg" alt="Final request flow – frontend to Cloudflare to NewsAPI" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+**Step by step:**
+
+1. **Frontend (AI Studio App)** calls our endpoint:
+   `GET https://<worker-domain>/news?q=<topic>`
+
+2. **Cloudflare Worker:**
+   - Reads the query parameter (`q`)
+   - Calls the appropriate NewsAPI endpoint (`/v2/everything` or `/v2/top-headlines`)
+   - Adds the API key server-side via `X-Api-Key` header
+   - Returns JSON with CORS headers so the browser accepts the response
+
+3. **Frontend renders real data:**
+   - Topic cards use a real `url` (opens the article)
+   - `urlToImage` displays the article thumbnail
+
+**Result:** No more fake links · real articles for development testing · secure API key handling · working browser access despite CORS
+
+## News Source List
+
+Curated sources configured in the dashboard, organised by category:
+
+**General / International**
+
+| Source | Domain | Source ID |
+|--------|--------|-----------|
+| BBC News | bbc.com | `bbc-news` |
+| CNN | cnn.com | `cnn` |
+| Al Jazeera English | aljazeera.com | `al-jazeera-english` |
+| ABC News (USA) | abcnews.go.com | `abc-news` |
+
+**Business & Finance**
+
+| Source | Domain | Source ID |
+|--------|--------|-----------|
+| Bloomberg | bloomberg.com | `bloomberg` |
+| Business Insider | businessinsider.com | `business-insider` |
+| Financial Times | ft.com | `financial-times` |
+
+**Technology & Innovation**
+
+| Source | Domain | Source ID |
+|--------|--------|-----------|
+| TechCrunch | techcrunch.com | `techcrunch` |
+| The Verge | theverge.com | `the-verge` |
+| Engadget | engadget.com | `engadget` |
+| Ars Technica | arstechnica.com | `ars-technica` |
+
+**EU / Europe-focused**
+
+| Source | Domain | Source ID |
+|--------|--------|-----------|
+| Politico | politico.com | `politico` |
+| The Guardian | theguardian.com | `the-guardian-uk` |
+| Le Monde | lemonde.fr | `le-monde` |
+
+## GDPR / Privacy (Appendix)
+
+<img src="/projects/kiwebe/gdpr.jpeg" alt="GDPR privacy card design" style={{display:'block',margin:'16px auto',width:'60%'}} />
+
+A dedicated privacy card is required for Germany / EU compliance. Contents:
+
+- Privacy policy (as PDF or linked page)
+- Imprint (legally required in Germany)
+- Data controls: *"Request data export"* · *"Delete stored data"*
+- Contact / responsible party email
+- Version stamp: `Valid from: YYYY-MM-DD` + optional changelog
+
+**Placement (2-click rule):** Home → Settings → Privacy & Legal → Privacy & GDPR

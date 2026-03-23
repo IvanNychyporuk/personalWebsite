@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact",
+    "impressum": "Impressum",
+    "aiAssistant": "AI Assistant"
+  },
+  "home": {
+    "heroKicker": "AI media, design, and integration",
+    "heroTitle": "Lets build content systems that ship.\nFast, high-quality, human-led —\nwith AI where it helps",
+    "heroLead": "I'm Ivan Nychyporuk — AI Media / Content Designer & Creator and AI integration consultant. I bring 15+ years of compositing craft from film and advertising into modern content pipelines.",
+    "heroCtaPrimary": "View projects",
+    "heroCtaSecondary": "Contact",
+    "highlightsKicker": "Highlights",
+    "highlightsTitle": "A career built on visual precision",
+    "capabilitiesKicker": "What I do",
+    "capabilitiesTitle": "Creative production + AI-native workflows",
+    "processKicker": "Process",
+    "processTitle": "From brief to delivery",
+    "contactKicker": "Contact",
+    "contactTitle": "Let's talk"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "For roles, projects, or partnerships: email is best. I can share additional materials on request."
+  },
+  "aiAssistant": {
+    "title": "AI Assistant",
+    "lead": "A dedicated chat experience will live here. It will explain my skills and how I work for employers and partners.",
+    "placeholderTitle": "Coming soon",
+    "placeholderBody": "This is a reserved space for the chatbot UI. For now, please reach out via email or LinkedIn."
+  },
+  "impressum": {
+    "title": "Impressum",
+    "placeholder": "Impressum content will be added once the required legal details are provided."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "placeholder": "Privacy/Datenschutz content will be added once the required legal details are provided."
+  }
+}

@@ -1,0 +1,292 @@
+---
+title: "AI-Powered Advertising Agency"
+year: 2026
+tags: ["advertising", "agents", "saas", "web"]
+summary: "A SaaS platform where 12 AI agents autonomously deliver end-to-end advertising campaigns — from strategy to production-ready assets."
+---
+
+<div style={{display:'flex',flexWrap:'wrap',gap:10,justifyContent:'center',margin:'24px 0 32px'}}>
+  <span style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:20,padding:'5px 14px',fontSize:13,color:'#64748b'}}><strong style={{color:'#111'}}>12</strong> AI Agents</span>
+  <span style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:20,padding:'5px 14px',fontSize:13,color:'#64748b'}}><strong style={{color:'#111'}}>4</strong> Development Phases</span>
+  <span style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:20,padding:'5px 14px',fontSize:13,color:'#64748b'}}><strong style={{color:'#111'}}>27</strong> Automated Tests</span>
+  <span style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:20,padding:'5px 14px',fontSize:13,color:'#64748b'}}><strong style={{color:'#111'}}>30+</strong> API Routes</span>
+  <span style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:20,padding:'5px 14px',fontSize:13,color:'#64748b'}}>GDPR-compliant · Germany-first</span>
+</div>
+
+<p style={{fontSize:17,color:'#64748b',maxWidth:700,margin:'0 auto 8px'}}>A SaaS platform where clients describe their product and AI agents autonomously deliver end-to-end advertising campaigns — from strategy to production-ready assets.</p>
+
+---
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'40px 0 8px'}}>Development Process</p>
+
+## How It Was Built
+
+The platform was designed as a **Minimum Viable Agentic Company (MVAC)** — 12 specialized AI agents covering every department of a real advertising agency. Development ran across 4 structured phases, each ending with a verified checkpoint before the next phase began.
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:20,margin:'24px 0 40px'}}>
+  <div style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:12,padding:'24px 22px'}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'#2563eb',marginBottom:10,textTransform:'uppercase'}}>Phase 0 · Days 0–14</div>
+    <h3 style={{fontSize:15,fontWeight:700,marginBottom:8}}>Foundations</h3>
+    <p style={{fontSize:13.5,color:'#64748b'}}>Set up the full infrastructure: database schema (Prisma + SQLite), authentication (NextAuth.js v5 with Google OAuth), message bus, risk-tier engine (P0–P5), and all 12 agent definitions.</p>
+    <span style={{display:'inline-block',background:'rgba(16,185,129,0.12)',border:'1px solid rgba(16,185,129,0.3)',color:'#059669',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:10,marginTop:12}}>✓ 100% Complete</span>
+  </div>
+  <div style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:12,padding:'24px 22px'}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'#2563eb',marginBottom:10,textTransform:'uppercase'}}>Phase 1 · Days 15–45</div>
+    <h3 style={{fontSize:15,fontWeight:700,marginBottom:8}}>MVAC Pilot</h3>
+    <p style={{fontSize:13.5,color:'#64748b'}}>Activated the first three core automations: the A08 marketing asset pipeline (MVEP research → campaign concept), A06 customer support triage, and the full Spec-to-Ship pipeline (PRD → architecture → code → QA).</p>
+    <span style={{display:'inline-block',background:'rgba(16,185,129,0.12)',border:'1px solid rgba(16,185,129,0.3)',color:'#059669',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:10,marginTop:12}}>✓ 100% Complete</span>
+  </div>
+  <div style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:12,padding:'24px 22px'}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'#2563eb',marginBottom:10,textTransform:'uppercase'}}>Phase 2 · Days 46–75</div>
+    <h3 style={{fontSize:15,fontWeight:700,marginBottom:8}}>MVAC Stabilization</h3>
+    <p style={{fontSize:13.5,color:'#64748b'}}>Built the service catalog, MCP tool allowlist, GDPR-compliant RoPA dashboard, and hardened the message bus with retry logic, exponential back-off, and a dead-letter queue.</p>
+    <span style={{display:'inline-block',background:'rgba(16,185,129,0.12)',border:'1px solid rgba(16,185,129,0.3)',color:'#059669',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:10,marginTop:12}}>✓ 100% Complete</span>
+  </div>
+  <div style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:12,padding:'24px 22px'}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',color:'#2563eb',marginBottom:10,textTransform:'uppercase'}}>Phase 3 · Days 76–90</div>
+    <h3 style={{fontSize:15,fontWeight:700,marginBottom:8}}>Reliability</h3>
+    <p style={{fontSize:13.5,color:'#64748b'}}>Added an evaluation harness (3 suites × 3 cases, keyword scoring, drift detection), incident management with Claude-generated postmortems, per-agent cost budgets, and live drift monitoring banners.</p>
+    <span style={{display:'inline-block',background:'rgba(16,185,129,0.12)',border:'1px solid rgba(16,185,129,0.3)',color:'#059669',fontSize:11,fontWeight:600,padding:'2px 8px',borderRadius:10,marginTop:12}}>✓ 100% Complete</span>
+  </div>
+</div>
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'0 0 12px'}}>Technology Stack</p>
+
+<div style={{display:'flex',flexWrap:'wrap',gap:10,marginBottom:40}}>
+  {['Next.js 15 (App Router)','TypeScript','Tailwind CSS','Zod + Pino'].map(t => (
+    <span key={t} style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:8,padding:'7px 14px',fontSize:13}}>
+      <span style={{display:'inline-block',width:7,height:7,borderRadius:'50%',background:'#2563eb',marginRight:7,verticalAlign:'middle'}}></span>{t}
+    </span>
+  ))}
+  {['Claude Agent SDK','Anthropic API','Vitest (27 tests)'].map(t => (
+    <span key={t} style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:8,padding:'7px 14px',fontSize:13}}>
+      <span style={{display:'inline-block',width:7,height:7,borderRadius:'50%',background:'#10b981',marginRight:7,verticalAlign:'middle'}}></span>{t}
+    </span>
+  ))}
+  {['Prisma ORM + SQLite / PostgreSQL','NextAuth.js v5'].map(t => (
+    <span key={t} style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:8,padding:'7px 14px',fontSize:13}}>
+      <span style={{display:'inline-block',width:7,height:7,borderRadius:'50%',background:'#a78bfa',marginRight:7,verticalAlign:'middle'}}></span>{t}
+    </span>
+  ))}
+  {['Stable Diffusion XL (HuggingFace)','DALL-E 3'].map(t => (
+    <span key={t} style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:8,padding:'7px 14px',fontSize:13}}>
+      <span style={{display:'inline-block',width:7,height:7,borderRadius:'50%',background:'#fb923c',marginRight:7,verticalAlign:'middle'}}></span>{t}
+    </span>
+  ))}
+</div>
+
+---
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'40px 0 8px'}}>Core Concept</p>
+
+## A Company Run by AI Agents
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:48,margin:'24px 0 48px'}}>
+  <div>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:12}}>The central idea of this project is not just AI-assisted tooling — it is a complete company architecture where 12 specialized AI agents handle every department: executive strategy, compliance, engineering, QA, marketing, sales, and customer support.</p>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:12}}>Each agent has a defined role, a primary tool (Claude Cowork or Claude Code), a set of outputs it is responsible for, and a risk tier that determines how much autonomy it gets. Agents communicate via a typed message bus using a structured schema (<em>REQUEST → PLAN → APPROVE → EXECUTE → VERIFY</em>) so every decision is traceable.</p>
+    <p style={{fontSize:15,color:'#64748b'}}>Human gatekeepers only appear at P4/P5 risk levels — for client-facing decisions, financial actions, or production deployments. Everything below that threshold runs autonomously.</p>
+  </div>
+  <div>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:12}}>When a client submits a campaign, the chain looks like this: <strong>A01 (CEO)</strong> sets the priority and publishes a REQUEST → <strong>A02 (Chief-of-Staff)</strong> writes the brief and runs market research → <strong>A08 (Marketing)</strong> generates the campaign concept, visual mockups, and storyboard → <strong>A05 (Product Manager)</strong> writes acceptance criteria → <strong>A10 (Builder)</strong> ships any code changes → <strong>A11 (QA)</strong> validates → <strong>A03 (Compliance)</strong> checks legal constraints before anything goes external.</p>
+    <p style={{fontSize:15,color:'#64748b'}}>The same orchestration applies internally: feature requests go through Spec-to-Ship (A05 → A09 → A10 → A11), support tickets go through A06 triage, and cost/quality metrics are continuously monitored by the eval harness.</p>
+  </div>
+</div>
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'0 0 14px'}}>Client Campaign Flow</p>
+
+<div style={{display:'flex',alignItems:'center',flexWrap:'wrap',background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:12,padding:'24px 20px',margin:'0 0 48px',overflowX:'auto'}}>
+  {[
+    {circle:'📝',label:'Client\nsubmits',color:'#e2e8f0'},
+    {arrow:true},
+    {circle:'A01',label:'CEO sets\npriority',color:'#a78bfa'},
+    {arrow:true},
+    {circle:'A02',label:'Brief +\nresearch',color:'#60a5fa'},
+    {arrow:true},
+    {circle:'A08',label:'Concept +\nvisuals',color:'#fb923c'},
+    {arrow:true},
+    {circle:'👤',label:'Client\napproves',color:'#e2e8f0'},
+    {arrow:true},
+    {circle:'A08',label:'Storyboard\n+ bundle',color:'#fb923c'},
+    {arrow:true},
+    {circle:'A03',label:'Compliance\ncheck',color:'#fca5a5'},
+    {arrow:true},
+    {circle:'📦',label:'Production\nbundle',color:'#e2e8f0'},
+  ].map((item,i) => item.arrow
+    ? <span key={i} style={{fontSize:18,color:'#cbd5e1',flexShrink:0,padding:'0 4px',marginBottom:24}}>→</span>
+    : <div key={i} style={{display:'flex',flexDirection:'column',alignItems:'center',flex:1,minWidth:80,textAlign:'center'}}>
+        <div style={{width:48,height:48,borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontSize:16,fontWeight:700,marginBottom:8,border:`2px solid ${item.color}`,background:'white'}}>{item.circle}</div>
+        <span style={{fontSize:11,fontWeight:600,color:'#64748b',lineHeight:1.3,whiteSpace:'pre-line'}}>{item.label}</span>
+      </div>
+  )}
+</div>
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'0 0 14px'}}>The 12-Agent Roster (MVAC)</p>
+
+<div style={{overflowX:'auto',borderRadius:12,border:'1px solid #e2e8f0',marginBottom:40}}>
+  <table style={{width:'100%',borderCollapse:'collapse',fontSize:13.5}}>
+    <thead>
+      <tr style={{background:'#f1f5f9'}}>
+        {['ID','Agent','Type','Primary Tool','Key Output','Max Risk'].map(h => (
+          <th key={h} style={{textAlign:'left',padding:'12px 16px',fontSize:11,fontWeight:700,letterSpacing:'0.08em',textTransform:'uppercase',color:'#64748b',borderBottom:'1px solid #e2e8f0'}}>{h}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['A01','Strategy / CEO Agent',['Executive','rgba(168,85,247,0.15)','#7c3aed','rgba(168,85,247,0.3)'],'Claude Cowork','OKRs, priorities, decision memos',['P5','#450a0a','#fca5a5']],
+        ['A02','Chief-of-Staff / Program Agent',['Operator','rgba(37,99,235,0.15)','#1d4ed8','rgba(37,99,235,0.3)'],'Claude Cowork','Weekly plan, RAID log, research briefs',['P3','#44330a','#fde68a']],
+        ['A03','Policy & Compliance Guardian',['Guardian','rgba(239,68,68,0.15)','#b91c1c','rgba(239,68,68,0.3)'],'Cowork + API','Policies, GDPR approvals, risk registers',['P5','#450a0a','#fca5a5']],
+        ['A04','Security Guardian',['Guardian','rgba(239,68,68,0.15)','#b91c1c','rgba(239,68,68,0.3)'],'Claude Code','Permission policies, security reviews, incident stop-the-line',['P5','#450a0a','#fca5a5']],
+        ['A05','Product Manager Agent',['Analyst','rgba(37,99,235,0.15)','#1d4ed8','rgba(37,99,235,0.3)'],'Claude Cowork','PRDs, acceptance criteria, release briefs',['P3','#44330a','#fde68a']],
+        ['A06','Customer Support Triage Agent',['Customer-facing','rgba(251,146,60,0.15)','#c2410c','rgba(251,146,60,0.3)'],'Cowork + API','Ticket responses, bug reports, KB drafts',['P4','#431407','#fdba74']],
+        ['A07','Sales Agent (SDR + AE)',['Customer-facing','rgba(251,146,60,0.15)','#c2410c','rgba(251,146,60,0.3)'],'Claude Cowork','Outreach sequences, proposals, deal memos',['P4','#431407','#fdba74']],
+        ['A08','Marketing / Growth Agent',['Operator','rgba(37,99,235,0.15)','#1d4ed8','rgba(37,99,235,0.3)'],'Claude Cowork','Campaign concepts, visuals, storyboards, bundles',['P3','#44330a','#fde68a']],
+        ['A09','Engineering Lead / Architect Agent',['Executive','rgba(168,85,247,0.15)','#7c3aed','rgba(168,85,247,0.3)'],'Claude Code','ADRs, technical plans, PR review & merge decisions',['P4','#431407','#fdba74']],
+        ['A10','Full-Stack Builder Agent',['Builder','rgba(16,185,129,0.15)','#047857','rgba(16,185,129,0.3)'],'Claude Code','Feature PRs, bug fixes, tests',['P3','#44330a','#fde68a']],
+        ['A11','QA / Test Automation Agent',['Builder','rgba(16,185,129,0.15)','#047857','rgba(16,185,129,0.3)'],'Claude Code','Test plans, regression suite, quality reports',['P3','#44330a','#fde68a']],
+        ['A12','People & Money Ops Agent',['Operator','rgba(37,99,235,0.15)','#1d4ed8','rgba(37,99,235,0.3)'],'Claude Cowork','Budget drafts, hiring ops, vendor notes',['P4','#431407','#fdba74']],
+      ].map(([id,name,type,tool,output,risk],i) => (
+        <tr key={id} style={{borderBottom: i < 11 ? '1px solid #f1f5f9' : 'none'}}>
+          <td style={{padding:'11px 16px',fontWeight:700,fontSize:12,color:'#2563eb',whiteSpace:'nowrap'}}>{id}</td>
+          <td style={{padding:'11px 16px',fontWeight:600}}>{name}</td>
+          <td style={{padding:'11px 16px'}}>
+            <span style={{display:'inline-block',padding:'2px 8px',borderRadius:6,fontSize:11,fontWeight:600,background:type[1],color:type[2],border:`1px solid ${type[3]}`}}>{type[0]}</span>
+          </td>
+          <td style={{padding:'11px 16px',fontSize:13}}>{tool}</td>
+          <td style={{padding:'11px 16px',color:'#64748b',fontSize:13}}>{output}</td>
+          <td style={{padding:'11px 16px'}}>
+            <span style={{fontSize:11,fontWeight:700,padding:'2px 7px',borderRadius:5,background:risk[1],color:risk[2]}}>{risk[0]}</span>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'0 0 10px'}}>Risk Tier Model (P0–P5)</p>
+<p style={{fontSize:14,color:'#64748b',marginBottom:16}}>Every agent action is classified by risk level. Higher tiers require progressively more oversight — from fully autonomous reads (P0) to explicit human sign-off for production deployments and contracts (P5).</p>
+
+<div style={{display:'flex',flexWrap:'wrap',gap:10,marginBottom:48}}>
+  {[
+    ['P0','#1f2937','#9ca3af','Read-only — fully autonomous'],
+    ['P1','#14532d','#86efac','Internal draft — autonomous'],
+    ['P2','#1e3a5f','#93c5fd','Internal publish — peer review'],
+    ['P3','#44330a','#fde68a','External comms / code merge — Guardian review'],
+    ['P4','#431407','#fdba74','Customer-facing / financial — human-in-the-loop'],
+    ['P5','#450a0a','#fca5a5','Production deploy / contracts — explicit human approval'],
+  ].map(([p,bg,color,label]) => (
+    <div key={p} style={{display:'flex',alignItems:'center',gap:8,fontSize:12,color:'#64748b'}}>
+      <span style={{fontSize:11,fontWeight:700,padding:'2px 7px',borderRadius:5,background:bg,color:color}}>{p}</span>
+      {label}
+    </div>
+  ))}
+</div>
+
+---
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'40px 0 8px'}}>Platform Walkthrough</p>
+
+## What Was Built
+
+Four views that cover the full scope — from internal agent operations to the client-facing campaign workflow.
+
+<div style={{margin:'32px 0 56px'}}>
+  <div style={{borderRadius:12,border:'1px solid #e2e8f0',overflow:'hidden',boxShadow:'0 8px 30px rgba(0,0,0,0.08)'}}>
+    <img src="/projects/mvac/01-BPG.png" alt="Project Status Dashboard — all 4 phases at 100%" style={{width:'100%',height:'auto',display:'block',borderRadius:0}} />
+  </div>
+  <div style={{marginTop:20}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',marginBottom:8}}>01 — Internal Dashboard</div>
+    <h3 style={{fontSize:20,fontWeight:700,marginBottom:10}}>All 4 Phases Delivered at 100%</h3>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:14}}>The project status board tracked every milestone in real time. Each phase ran in its own git worktree with signed checkpoint tags (<em>CP-MAIN-MILESTONE-*</em>). The dashboard displays progress bars, sub-task completion, and the checkpoint tag that locked in each phase — providing full auditability of what was shipped and when.</p>
+    <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+      {['Phase 0–3 all green','27 routes','27/27 tests','Clean build'].map(t => (
+        <span key={t} style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:6,padding:'4px 10px',fontSize:12,color:'#2563eb'}}>{t}</span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:32,alignItems:'center',margin:'0 0 56px'}}>
+  <div>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',marginBottom:10}}>02 — Client Onboarding</div>
+    <h3 style={{fontSize:22,fontWeight:700,marginBottom:14}}>Campaign Creation in One Form</h3>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:20}}>Clients start by describing their product, uploading reference images, picking target channels (Instagram, TikTok, YouTube, Billboard…) and specifying brand constraints. The form feeds directly into the agent pipeline — no sales call, no briefing meeting. The AI asks any remaining clarifying questions inside the portal chat.</p>
+    <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+      {['Google OAuth / email login','Image upload','6 channel options','AI or manual audience'].map(t => (
+        <span key={t} style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:6,padding:'4px 10px',fontSize:12,color:'#2563eb'}}>{t}</span>
+      ))}
+    </div>
+  </div>
+  <div style={{borderRadius:12,border:'1px solid #e2e8f0',overflow:'hidden',boxShadow:'0 8px 30px rgba(0,0,0,0.08)'}}>
+    <img src="/projects/mvac/02-NewCampaign.png" alt="New Campaign creation form" style={{width:'100%',height:'auto',display:'block',borderRadius:0}} />
+  </div>
+</div>
+
+<div style={{margin:'0 0 56px'}}>
+  <div style={{borderRadius:12,border:'1px solid #e2e8f0',overflow:'hidden',boxShadow:'0 8px 30px rgba(0,0,0,0.08)'}}>
+    <img src="/projects/mvac/03-CampaignExsample.png" alt="Campaign portal with chat and visual mockups" style={{width:'100%',height:'auto',display:'block',borderRadius:0}} />
+  </div>
+  <div style={{marginTop:20}}>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',marginBottom:8}}>03 — Campaign Portal</div>
+    <h3 style={{fontSize:20,fontWeight:700,marginBottom:10}}>Chat-Driven Campaign Workflow</h3>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:14}}>A 7-step progress bar (Intake → Questions → Concept → Visuals → Storyboard → Bundle → Done) guides the client through the full campaign. At each stage the AI presents work in the chat panel and renders outputs — visual mockups, storyboard shots — in the right-hand preview panel. Clients can accept, request improvements, or remake from scratch at any step.</p>
+    <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+      {['Stable Diffusion XL visuals','5-shot storyboard (30 s)','Iterative feedback loop','Channel-aware formats'].map(t => (
+        <span key={t} style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:6,padding:'4px 10px',fontSize:12,color:'#2563eb'}}>{t}</span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div style={{display:'grid',gridTemplateColumns:'3fr 2fr',gap:32,alignItems:'center',margin:'0 0 56px'}}>
+  <div>
+    <div style={{fontSize:11,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',marginBottom:10}}>04 — Storyboard Detail</div>
+    <h3 style={{fontSize:22,fontWeight:700,marginBottom:14}}>Video-Ready Shot Cards with Runway Prompts</h3>
+    <p style={{fontSize:15,color:'#64748b',marginBottom:20}}>Each storyboard frame includes a generated image, a visual description, exact timing (e.g. 0:00–0:06), a camera movement note, and a collapsible Runway prompt ready to paste into an AI video tool. The 5-shot structure covers a full 30-second commercial in landscape (16:9) or portrait (9:16) format based on selected channels.</p>
+    <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+      {['5 shots × 6 s = 30 s','DALL-E 3 primary / HF fallback','Runway prompt per shot','16:9 or 9:16 auto-select'].map(t => (
+        <span key={t} style={{background:'#f1f5f9',border:'1px solid #e2e8f0',borderRadius:6,padding:'4px 10px',fontSize:12,color:'#2563eb'}}>{t}</span>
+      ))}
+    </div>
+  </div>
+  <div style={{borderRadius:12,border:'1px solid #e2e8f0',overflow:'hidden',boxShadow:'0 8px 30px rgba(0,0,0,0.08)'}}>
+    <img src="/projects/mvac/04-Storyboard.png" alt="Storyboard detail with Runway prompts" style={{width:'100%',height:'auto',display:'block',borderRadius:0}} />
+  </div>
+</div>
+
+---
+
+<p style={{fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',color:'#2563eb',margin:'40px 0 8px'}}>Results Achieved</p>
+
+## What We Delivered in 90 Days
+
+Starting from an empty repository, the platform reached a fully operational state across all four planned phases within the target 90-day window.
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:20,margin:'32px 0 40px'}}>
+  {[['12','AI Agents (A01–A12)\ncovering every department'],['30+','Authenticated API routes\nacross all modules'],['27/27','Automated tests passing\nwith clean production build'],['100%','All 4 phases complete\non time with checkpoints']].map(([num,label]) => (
+    <div key={num} style={{background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:12,padding:'28px 22px',textAlign:'center'}}>
+      <div style={{fontSize:42,fontWeight:800,letterSpacing:'-0.03em',background:'linear-gradient(135deg,#2563eb,#10b981)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>{num}</div>
+      <div style={{fontSize:13,color:'#64748b',marginTop:6,whiteSpace:'pre-line'}}>{label}</div>
+    </div>
+  ))}
+</div>
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:16,marginBottom:40}}>
+  {[
+    ['🤖','Full Agentic Campaign Pipeline','From product description to storyboard with Runway prompts — fully automated, no human copywriter or art director required.'],
+    ['🖼️','AI Visual Generation','Product image analysis feeds into every prompt. Stable Diffusion XL generates channel-correct formats (1:1, 9:16, 16:9) with DALL-E 3 as fallback.'],
+    ['🔒','GDPR-Compliant by Design','Record of Processing Activities (RoPA), Data Flow Diagrams, and P0–P5 risk tiers enforce German/EU compliance automatically.'],
+    ['📊','Reliability Monitoring','Eval harness with drift detection (WARNING ≥20%, CRITICAL ≥40%), per-agent cost budgets, and Claude-generated incident postmortems.'],
+    ['🔁','Spec-to-Ship Automation','A05 writes the PRD, A09 produces the technical plan, A10 generates code, A11 writes the test plan — all triggered by a single form submit.'],
+    ['🛡️','Message Bus with Retry Logic','Dead-letter queue with 3 attempts and exponential back-off ensures no inter-agent message is silently lost under failure conditions.'],
+  ].map(([icon,title,desc]) => (
+    <div key={title} style={{display:'flex',gap:14,background:'#f8fafc',border:'1px solid #e2e8f0',borderRadius:10,padding:'18px'}}>
+      <div style={{fontSize:20,flexShrink:0,marginTop:1}}>{icon}</div>
+      <div>
+        <h4 style={{fontSize:14,fontWeight:600,marginBottom:4}}>{title}</h4>
+        <p style={{fontSize:13,color:'#64748b',margin:0}}>{desc}</p>
+      </div>
+    </div>
+  ))}
+</div>

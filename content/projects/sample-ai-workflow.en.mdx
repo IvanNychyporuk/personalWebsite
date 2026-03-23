@@ -1,0 +1,176 @@
+---
+title: "AI Photo Storyboard — Autumn Walk"
+year: 2026
+tags: ["photography", "advertising", "workflow"]
+summary: "A repeatable AI-assisted workflow for creating photo session storyboards — from concept brief to prompt-ready shot list, using Adobe Firefly, Nano Banana, and DALL-E."
+---
+
+## Context
+
+This project was developed as part of the KIBILD program. The goal: build a reusable, tool-specific prompt system for generating a coherent series of AI images — a 10-shot autumn photo session storyboard set in a historic German old town.
+
+The workflow covers the full pipeline: creative brief → shot list → prompt engineering → quality checks → delivery package.
+
+## Creative Brief
+
+**Theme & Setting** — Autumn walk through a cozy German Altstadt with half-timbered houses, cobblestone streets, and café windows.
+
+**Mood** — Warm, natural, genuine connection. The couple enjoys the walk without posed gestures or dramatic staging.
+
+**Palette & Styling** — Neutral autumn tones: camel, oat, denim, leather, wool, suede textures.
+
+**Design principles:**
+- The street as a leading line; shallow depth of field for subject separation; soft background geometry
+- Continuous color grading: soft contrasts, warm neutrals, natural skin tones across all images
+- One couple throughout — clothing stays consistent, connection shown through subtle signals (synchronised steps, brief glances, light shoulder touch)
+
+## Shot List
+
+| # | Name | Description |
+|---|------|-------------|
+| 1 | Cobbles & Timber | Wide establishing shot; couple mid-walk, relaxed posture, soft gaze. 3:2 or 16:9 format, ~35 mm, eye level. |
+| 2 | Archway Hug | Couple framed by a stone/brick arch; intimacy without kitsch. ~85 mm, centred or rule of thirds. |
+| 3 | Boots & Puddles | Low-angle close-up of boots stepping into a shallow puddle; façade and leaf reflections. Playful, cinematic finish. |
+| 4 | Converging Lines | Mid-wide walkway shot; hands almost touching; linear depth. |
+| 5 | Shoulder Look | Medium close-up; shared soft smile; bokeh background. |
+| 6 | Café Window Pass | Couple reflected in glass; structural transparency layering. |
+| 7 | Hands & Textures | Knit scarf, leather strap, wool coats — tactile close-ups. |
+| 8 | Portrait Pair | Side by side; shallow focus; autumn bokeh leaves. |
+| 9 | Negative Space Moment | One figure soft in foreground, partner sharp in mid-ground. |
+| 10 | Backlit Rim Light | Hair/shoulder glow; warm falling leaves. |
+
+## Visual & Technical Guidelines
+
+**Lens & Depth**
+- Full-frame aesthetic: ~35 mm (wide), ~50 mm (standard), ~85 mm (portrait)
+- f/2–2.8 for subject/background separation; f/4 optional for more readable environment
+
+**Motion & Light**
+- 1/320 s base shutter; adjust for splash shots
+- Soft daylight as key (overcast sky or low sun)
+- Gentle contrast; no blown-out shadows; warm neutrals in highlights
+
+**Texture priority:** Wool / knit / suede / leather; wet cobblestones after rain; window reflections for layering.
+
+## AI Tool Integration
+
+**Adobe Firefly** — Compact prompts; lead with subject, lighting, lens, mood. Always include a camera perspective tag (e.g. "eye level", "wide shot", "close-up", "over-the-shoulder"). Avoid overly long technical descriptions.
+
+> Example: *"Autumn old-town street, couple mid-walk, casual glance; warm neutral palette; soft daylight, gentle contrast; full-frame look, ~35 mm, shallow depth of field; wide shot, converging lines, cobblestones and half-timbered houses; natural skin tones."*
+
+**Nano Banana (JSON)** — Modular fields: `content`, `camera`, `light`, `composition`, `quality`, `negatives`. Specify numeric values explicitly (aperture, focal length, shutter). Minimise style adjectives.
+
+**DALL-E** — Best for narrative scene prompts with context and character description.
+
+## Character Continuity
+
+Full-body frontal reference images per character were generated first and used as anchors across all shots. Locked parameters: age/build, hair length/colour/style, clothing palette (camel/oat/denim/leather), shoe style, coat cut, scarf/knit texture, accessories (watch/leather bracelet), and overall fit.
+
+This prevents visual drift across the series and stabilises the colour and silhouette read.
+
+<div style={{display:'flex',justifyContent:'center',gap:'24px',margin:'16px 0'}}>
+  <img src="/projects/kibild/character-female.jpg" alt="Character reference – female" style={{width:'auto',maxWidth:'340px',flexShrink:0}} />
+  <img src="/projects/kibild/character-male.jpg" alt="Character reference – male" style={{width:'auto',maxWidth:'340px',flexShrink:0}} />
+</div>
+
+## Exposition — Realistic Output
+
+The first round of generation used Adobe Firefly targeting the Altstadt autumn setting. Twelve hero images from the session:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo1-01.jpg" alt="Exposition – shot 1" />
+  <img src="/projects/kibild/expo1-02.jpg" alt="Exposition – shot 2" />
+  <img src="/projects/kibild/expo1-03.jpg" alt="Exposition – shot 3" />
+  <img src="/projects/kibild/expo1-04.jpg" alt="Exposition – shot 4" />
+  <img src="/projects/kibild/expo1-05.jpg" alt="Exposition – shot 5" />
+  <img src="/projects/kibild/expo1-06.jpg" alt="Exposition – shot 6" />
+</div>
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'8px 0'}}>
+  <img src="/projects/kibild/expo2-01.jpg" alt="Exposition – shot 7" />
+  <img src="/projects/kibild/expo2-02.jpg" alt="Exposition – shot 8" />
+  <img src="/projects/kibild/expo2-03.jpg" alt="Exposition – shot 9" />
+  <img src="/projects/kibild/expo2-04.jpg" alt="Exposition – shot 10" />
+  <img src="/projects/kibild/expo2-05.jpg" alt="Exposition – shot 11" />
+  <img src="/projects/kibild/expo2-06.jpg" alt="Exposition – shot 12" />
+</div>
+
+## Exposition — Style Transfer (Futuristic)
+
+Using the same prompt system with a sci-fi / futuristic architecture setting to test prompt portability:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo-fut-01.jpg" alt="Futuristic – wide walk" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-02.jpg" alt="Futuristic – corridor" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-03.jpg" alt="Futuristic – bridge" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-04.jpg" alt="Futuristic – portrait" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-05.jpg" alt="Futuristic – dome" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-06.jpg" alt="Futuristic – neon" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-07.jpg" alt="Futuristic – glass wall" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-08.jpg" alt="Futuristic – night bridge" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+</div>
+
+## Quality Guidelines & Troubleshooting
+
+**Negative examples used as guardrails:**
+- Artificially smooth/plastic skin
+- Comic-like rendering
+- Oversharp halation
+- Distorted hands
+- Garish or oversaturated colours
+
+Common AI artefacts and how they were corrected using Firefly's generative fill (remove extra hat, fix blurred faces, remove phantom limbs, fill empty zones):
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/troubleshoot-before.jpg" alt="Before – artefacts" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/troubleshoot-during.jpg" alt="During – generative fill in progress" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/troubleshoot-after.jpg" alt="After – clean result" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+</div>
+
+## Watercolour Re-Mix
+
+A secondary output: the realistic images were re-processed into a watercolour style using DALL-E. The master prompt was derived by comparing a realistic reference and a watercolour-styled remix. Composition and colour palette are preserved.
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
+  <img src="/projects/kibild/watercolor-reference.jpg" alt="Realistic reference image" style={{objectFit:'cover'}} />
+  <img src="/projects/kibild/watercolor-pair.jpg" alt="Watercolour styled version" style={{objectFit:'cover'}} />
+</div>
+
+Re-mixing pipeline — three input/output pairs:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/remix-in-01.jpg" alt="Input 1" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-in-02.jpg" alt="Input 2" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-in-03.jpg" alt="Input 3" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-02a.jpg" alt="Watercolour output 1" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-01.jpg" alt="Watercolour output 2" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-02b.jpg" alt="Watercolour output 3" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+</div>
+
+## Exposition — Watercolour Series
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo3-01.jpg" alt="Watercolour – wide walk" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-02.jpg" alt="Watercolour – archway" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-03.jpg" alt="Watercolour – street" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-04.jpg" alt="Watercolour – portrait" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-05.jpg" alt="Watercolour – leaf" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-06.jpg" alt="Watercolour – rim light" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+</div>
+
+## Deliverables
+
+- 10-image storyboard set with captions and per-shot technical notes
+- Two full-body character reference images (front view)
+- Ready-to-use prompt package: Firefly prompts (with perspective tag), Nano Banana JSON blocks for 2–3 hero shots, DALL-E narrative prompts
+- Watercolour master prompt
+
+## Outcome
+
+A repeatable end-to-end workflow: **Analysis → Prompts → Iteration → Quality check → Package.**
+
+Key takeaways:
+- Start with a compact style capsule: camera feel, lighting, palette, textures, negatives
+- Use numbers instead of adjectives (focal length, aperture, shutter speed)
+- Assign prompts to the right tool — each has different strengths
+- Lock character references early; visual consistency across a series depends on it

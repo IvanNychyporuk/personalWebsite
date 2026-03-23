@@ -1,0 +1,28 @@
+.wrap {
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  min-width: 40px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.link:hover {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+}

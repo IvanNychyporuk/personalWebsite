@@ -1,0 +1,169 @@
+---
+title: "AI Social Media Marketing — Two-Channel Content Strategy"
+year: 2026
+tags: ["social media", "agents", "workflow"]
+summary: "A complete AI-powered social media strategy built around two channels — educational quiz content and cozy aesthetic videos — with a weekly 10-hour production system, automated publishing via n8n, and a YouTube Lounge Radio monetisation concept."
+---
+
+## Context
+
+This project was developed as part of the KISOME program. The goal: build a faceless, ethical, sustainable content brand operating on a 10-hour/week budget — generating quiz and cozy aesthetic content across TikTok, Instagram, and Facebook using AI tools.
+
+**Tools used:** ChatGPT · FlowithAI / Manus · Midjourney · ElevenLabs · Adobe Premiere · Suno · n8n
+
+**Constraints:** 10 h/week · 60–80 €/month · 100% anonymity
+
+## Project Overview
+
+<img src="/projects/kisome/project-overview.jpg" alt="Project overview – two-channel strategy" style={{margin:'16px 0'}} />
+
+*Style reference: [Hiroi Sekai](https://www.youtube.com/@HiroiSekaiOfficial) YouTube channel*
+
+**Two-channel strategy:**
+- **Quiz / Playful Learning** — curiosity-driven short-form content, retention-optimised
+- **Cozy Aesthetic / Aesthetic Enjoyment** — mood-regulation content, high save rate
+
+**Mission:** Create a digital sanctuary — calm, ethical, slow content that builds a loyal community without relying on a personal face or brand identity.
+
+## Research Foundation
+
+**Psychology & Algorithms**
+- Curiosity Gap → high watch time on quiz videos
+- Mood regulation & gentle fascination → high save rate on cozy content
+
+**Platform strengths:**
+- TikTok → discovery / reach building
+- Instagram → aesthetic authority
+- Facebook → community reach
+
+**Prompt Engineering Workflow**
+- Build mega-prompts and refine with ChatGPT (5.1 Thinking)
+- Two-part structure: algorithm & psychology analysis + personal social media roadmap
+- Export as PDF → feed into an agentic LLM (FlowithAI / Manus)
+
+## Strategic Blueprint
+
+**Long-term goal:** Build an ethical, faceless media asset brand
+
+**Guardrails:** 10 h/week · minimal cost · privacy-first
+
+**Target audiences & brand persona:**
+
+| Segment | Age | Need |
+|---------|-----|------|
+| The Learner | 18–30 | Competence, quick wins |
+| The Professional | 30+ | Calm, nostalgia, recovery |
+
+**Persona:** Calm older sibling figure — gentle, encouraging, never shaming
+
+**Platform formats:**
+- TikTok → retention-oriented puzzles
+- Instagram → save-worthy aesthetics
+- Facebook → repurposing & discussions
+
+## Content Architecture
+
+<img src="/projects/kisome/foggy_winter.png" alt="Content architecture – cozy visual style reference" style={{display:'block',margin:'16px auto',maxWidth:'55%'}} />
+
+### Cozy Pillars
+
+| Pillar | Description |
+|--------|-------------|
+| **Warm in the Cold** *(core)* | Cozy interior + cold outside world — rain, wind, snow, fog |
+| **Historic Cosiness** | Old libraries, vintage cafés, trains, historic streets |
+| **Golden Hour Dreams** | Warm sunlight, late afternoon, coastal rooms, balconies |
+| **Mood Blends** | Cozy + melancholic / nostalgic / mysterious — always real/historic settings |
+| **Product-ready Environments** | Highly detailed worlds where cups, books, lamps, posters can later be swapped for brand placements |
+
+### Quiz Pillars
+
+| Pillar | Description |
+|--------|-------------|
+| **Strange but True** | 1 question + 4 answers → reveal → short explanation + bonus fact |
+| **Unexpected Topics** | History → Chemistry → Cinema → Everyday — unpredictable jumps |
+| **Difficulty Mix** | 20% easy · 60% medium · 20% hard |
+| **Calm Competence Tests** | Clear, neutral questions — no countdown stress, no "genius-only" framing |
+| **Mini Explainers** | Last 5–10 seconds: a micro-lesson on the answer |
+
+## Production Workflow & Measurement
+
+<img src="/projects/kisome/production-workflow.jpg" alt="Weekly production workflow system" style={{display:'block',margin:'16px auto',maxWidth:'34%'}} />
+
+**Weekly 10-hour system:**
+
+| Day | Task |
+|-----|------|
+| Mon | Ideas & scripts (8–10 quiz entries, 4–5 cozy prompts) |
+| Tue | Asset generation (voiceovers, AI visuals) |
+| Wed | Batch editing: cut 6 quiz videos |
+| Thu | Scheduling & captions |
+| Fri | Community replies & review |
+
+**Season system:** Each season = 4–6 weeks · stable format → adjustments only after season review
+
+**Primary metrics:**
+- Quiz: retention, completion rate, comments
+- Cozy: saves, loops, mood keywords
+- *Avoid vanity metrics (likes, follower count in early phase)*
+
+**Adaptation:** Monthly reviews (not daily) · identify top-performing topics · soft A/B testing on tone, hook type, pacing
+
+## Cozy Style Concept — Visual Reference
+
+<img src="/projects/kisome/ultra-realistic_cozy_interior.png" alt="Cozy style concept – ultra-realistic interior" style={{display:'block',margin:'16px auto',maxWidth:'40%'}} />
+
+Ultra-realistic AI-generated interior — warm lighting, layered textures, plants, and books against a cold city backdrop. This visual tone defines the cozy channel's aesthetic: immersive, slow, and emotionally safe.
+
+## Updated Cozy Concept — YouTube Lounge Radio
+
+<img src="/projects/kisome/cozy-lounge.jpg" alt="YouTube Lounge Radio – cozy window projection concept" style={{margin:'16px 0'}} />
+
+**New content format:** 24/7-style lounge radio videos on YouTube — relaxing evening lounge music generated with Suno, seamlessly looped cozy videos.
+
+**Visual composition:**
+- **Foreground:** cozy interior elements (lamp, table, cup, plants, books) — warm colour palette
+- **Mid / window surface:** transparent projection layer for viewer messages
+- **Background:** city at evening or night — warm window lights, soft glow, subtle movement (rain, fog, clouds)
+
+**Monetisation mechanic — "Special Thanks Window"**
+
+Based on YouTube Super Thanks / paid comments. Supporters donate 1–2 € or more. Their message appears directly in the video — projected as fine text onto the window glass, animated with a soft glow or reflection effect. Messages rotate in a supporter queue.
+
+**Why this works:**
+- Creates a community-driven cozy space
+- Enables continuous monetisation without ads or product placement
+- Encourages repeat visits ("Is my message showing?")
+- Fits the Digital Sanctuary philosophy — slow, long watch sessions
+- Works well with YouTube's algorithm (high watch time = more reach)
+
+## Automation System — n8n + AI Agents
+
+<img src="/projects/kisome/automation-diagram.jpg" alt="n8n automation system diagram" style={{margin:'16px 0'}} />
+
+### Quiz Agent — Fully Automated Pipeline
+
+**Trigger:** Daily cron → reads content plan (Google Sheets / Notion)
+
+1. **AI generation (LLM node):** Creates question, 4 answers, correct answer, explanation, difficulty mix (20/60/20), video script, Midjourney prompt
+2. **Image generation (Midjourney):** Send prompt via Discord → wait for result → download
+3. **Video creation:** Option A — Runway or Freepik API generates the short; Option B — local FFmpeg builds the video (text overlays, light motion, optional TTS)
+4. **Auto-publishing:** n8n uploads to YouTube Shorts, Instagram Reels, Facebook Reels, TikTok → updates status + sends daily report
+
+### Lounge Radio Agent — YouTube 24/7 Cozy Stream
+
+**Trigger:** Scheduled automation
+
+1. **Music generation (Suno):** Auto-prompt: "relaxing evening lounge" → download track → update playlist
+2. **OBS control (WebSocket):** Switch to "LoungeRadio" scene → trigger YouTube livestream start/stop
+3. **Video scene components:** Cozy interior + city view loop · music playlist player · text layer projected on window (Special Thanks)
+4. **Special Thanks automation:** n8n fetches YouTube comments / Super Thanks → formats supporter names → sends updated text to OBS via WebSocket
+
+## Outcome
+
+A complete AI-powered content system: **Strategy → Content architecture → Prompt engineering → Asset generation → Batch production → Auto-publishing.**
+
+Key takeaways:
+- Two-channel strategy creates algorithmic diversity while keeping production unified
+- Faceless branding enables full anonymity and long-term scalability
+- The "Special Thanks Window" mechanic turns a passive watch experience into community participation
+- Full n8n automation reduces weekly active work to research and quality review

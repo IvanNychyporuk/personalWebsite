@@ -1,0 +1,180 @@
+---
+title: "AI Advertising Film — Character & Cinematography Prompts"
+year: 2026
+tags: ["video", "advertising", "workflow"]
+summary: "A complete pipeline for AI-generated advertising — from character system design and era-specific scene prompts to sound design, voice-over, and final editing in a 30-second café commercial."
+---
+
+## Context
+
+This project was developed as part of the KIMUVA program. The goal: build a repeatable, cinematic AI video workflow that takes a creative concept through to a finished 30-second advertisement — visual footage, voice-over, and sound effects included.
+
+**Tools used:** Google Veo 3.1 Fast · Adobe Firefly · Gemini Nano Banana · Suno · ElevenLabs · Adobe Premiere Pro
+
+**Success metrics:**
+- Match rate vs. reference image per frame
+- Artefact count per shot
+- VO words-per-second vs. perceived calm
+
+## Character System — Waitress
+
+A consistent character ("Mila") anchors the entire spot. Continuity is achieved through locked identity markers, not by re-using the same source image.
+
+- **Identity markers:** hair colour/length, skin tone, age group, posture, micro-expressions
+- **Wardrobe base:** café apron + neutral blouse + subtle accessory (repeatable across scenes)
+- **Continuity markers:** name tag, cup style, characteristic gesture — half-smile, eyes left toward camera
+- **Variability is key:** lighting and colour palette may shift; anatomy, silhouette and props stay locked
+- **Prompt hygiene:** precise descriptions; no contradictions; max 1–2 central props
+
+> *"Mila, late-20s café server; fair skin with light freckles across nose; hazel eyes; chestnut-brown hair in a low ponytail with a few baby hairs; subtle natural makeup; oval face; small silver stud earrings and thin chain necklace; brown leather watch on right wrist; crisp white oxford shirt, sleeves rolled; navy cotton apron tied in a center knot; calm, kind, attentive; signature details: tiny beauty mark under left cheekbone; slightly frayed apron strap; gentle, reassuring smile."*
+
+<div style={{display:'flex',justifyContent:'center',gap:'24px',margin:'16px 0'}}>
+  <img src="/projects/kimuva/character-01.jpg" alt="Character reference – Mila, portrait 1" style={{height:'360px',width:'auto',flexShrink:0,objectFit:'cover'}} />
+  <img src="/projects/kimuva/character-02.jpg" alt="Character reference – Mila, portrait 2" style={{height:'360px',width:'auto',flexShrink:0,objectFit:'cover'}} />
+</div>
+
+## Cinematography Prompt — Opening Shot
+
+The opening shot is generated from a single fully-specified prompt. Two generated outputs from the same prompt:
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
+  <img src="/projects/kimuva/cafe-door-before.jpg" alt="Café door – generated output A" style={{height:'420px',objectFit:'cover'}} />
+  <img src="/projects/kimuva/cafe-door-after.jpg" alt="Café door – generated output B" style={{height:'420px',objectFit:'cover'}} />
+</div>
+
+**Prompt (excerpt):** *Wide Shot through closed café double-door glass from the street. Straight-on, eye level. 50 mm spherical, f/2, 1/100, ISO 200, Pro-Mist 1/8, CPL. Interior 2700K warm amber vs exterior 5600K cool blue/gray. Negative: teal door, bright daytime sun, oversized sign blocking face, motion blur, hands on counter outside.*
+
+## Prompt Anatomy
+
+Every shot follows the same six-part template:
+
+| Element | Content |
+|---------|---------|
+| **Frame** | Shot type, camera angle, composition rule |
+| **Camera** | Focal length (50–65 mm), shallow DOF, max 1 movement |
+| **Action** | 1 clear subject action (set cup down, gentle glance) |
+| **Lighting** | Key / fill / rim + practicals; softness, direction, contrast ratio |
+| **Palette & Texture** | 3–5 colour accents; wet asphalt, porcelain, matte cotton |
+| **Constraints** | No logos/text; negative prompts for unwanted geometry |
+
+## Era Characters — 80s to Today
+
+The commercial spans three time periods, each requiring its own character set with locked continuity parameters.
+
+<img src="/projects/kimuva/street-80s.jpg" alt="80s street scene" style={{margin:'16px 0'}} />
+
+**80s characters:** roller skater (quad rollerskates, high-waist shorts, pastel windbreaker) · boombox carrier (colourful track jacket, cassette recorder) · skater (bleached print tee, flannel tied at waist) · office couple (shoulder-pad blazer, trenchcoat)
+
+<img src="/projects/kimuva/street-90s.jpg" alt="90s to present street scene" style={{margin:'8px 0'}} />
+
+**90s–Today characters:** couple under umbrella (oversized denim jacket, plaid shirt) · runner with AirPods (turquoise functional shirt, fitness band) · e-scooter rider (quilted vest, helmet) · pedestrian with smartphone (olive parka, screen glow in rain)
+
+Each era character has locked continuity: clothing palette, props, movement rhythm and hairstyle stay consistent across all shots they appear in.
+
+## Color & Lighting
+
+<img src="/projects/kimuva/rainy-street.jpg" alt="Rainy café street – color and lighting reference" style={{margin:'16px 0'}} />
+
+The commercial shifts from warm café interior to rainy street exterior, requiring a deliberate colour temperature transition:
+
+- **Interior:** 3000K warm amber — pendant bokeh, glazed tile reflections, steam haze
+- **Exterior:** ≈5600K cool blue/grey — wet pavement reflections, diffuse sky light, muted saturation
+- **Correction notes:** protect skin tones; soft halation; lift blacks gently; narrow lantern cone outdoors
+
+## Artifact Minimization
+
+<img src="/projects/kimuva/coffee-grinder.jpg" alt="Coffee grinder – animation reference" style={{margin:'16px 0'}} />
+
+- **Overloaded prompts** → split into "1 subject + 1 action"
+- **Ambiguous prop lists** → detailed foreground / midground / background inventory
+- **Phantom limbs / metal rods** → add to negative prompt
+- **Unstable composition** → lock with reference image; run edge scans and tangent checks
+
+For the coffee grinder rotation, keyframe checkpoints were specified at t=15%, 35%, 55%, 75%, 92% with a final elastic settle &lt;5° — no description of the full arc, only the reference angles.
+
+## Time Transition Troubleshooting
+
+The camera transitions from inside the café through the glass to the street in a single continuous shot. The fix: specifying dolly movement — not zoom — with explicit parallax instructions.
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kimuva/transition-01.jpg" alt="Time transition – inside café" style={{height:'220px',objectFit:'cover'}} />
+  <img src="/projects/kimuva/transition-02.jpg" alt="Time transition – mid-movement" style={{height:'220px',objectFit:'cover'}} />
+  <img src="/projects/kimuva/transition-03.jpg" alt="Time transition – street revealed" style={{height:'220px',objectFit:'cover'}} />
+</div>
+
+**Camera prompt (required):** *Slow forward dolly-in along the optical axis — not a zoom, no pan/tilt/roll. From t=0→90%, move forward ~40 cm; horizon steady. At t≈70–80% the window frame is completely out of view so the street is fully revealed. Show parallax: chalkboard/bike/cars scale up ~15–20%.*
+
+## Packshot Design
+
+The product (AURUM coffee tin) was designed and placed in-scene using Gemini Nano Banana, then animated with Google Veo 3.1 Fast.
+
+<img src="/projects/kimuva/packshot-single.jpg" alt="Packshot – AURUM coffee tin" style={{display:'block',margin:'16px auto',maxWidth:'60%'}} />
+
+**Nano Banana:** package design generation, colour and font customisation, environment compositing
+**Veo 3.1 Fast:** motion graphics and product reveal animation
+
+## Sound Design
+
+- **Diegetic sounds:** quiet room ambience · soft street noise · cup set down · coffee grinder hum · steam hiss
+- **Music:** *Sweet Silence (0.75×)* — slow, dreamy, piano-dominated ballad; generated in Suno v4.5-all (6:08)
+- **Dynamics:** low base level, soft transient peaks only — no constant background noise
+
+## Voice-Over System
+
+<img src="/projects/kimuva/voiceover.jpg" alt="ElevenLabs voice settings" style={{display:'block',margin:'16px auto',maxWidth:'50%'}} />
+
+**Cadence card:**
+
+| Timecode | Content |
+|----------|---------|
+| :00–:08 | Scene introduction |
+| :10–:18 | Product value |
+| :20–:26 | Sensory line |
+| :27–:30 | Brand name / CTA (very quiet) |
+
+**Process:** draft → trim to duration → cut ~40% for headroom → map to cadence card
+
+**TTS settings (ElevenLabs):** speed slightly below normal · softer voice onset · soft sibilants — Voice: Jessica, Eleven Multilingual v2
+
+## Editing — Shot List
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:'6px',margin:'16px 0'}}>
+  <img src="/projects/kimuva/shot-01.jpg" alt="Shot 01 – Café opening" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-02.jpg" alt="Shot 02 – 80s street energy" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-03.jpg" alt="Shot 03 – First drop" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-04.jpg" alt="Shot 04 – Time sweep" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-05.jpg" alt="Shot 04a – Grinding beans" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-06.jpg" alt="Shot 05 – 90s rain street" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-07.jpg" alt="Shot 06 – Steam" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-08.jpg" alt="Shot 07 – Today street" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-09.jpg" alt="Shot 08 – Latte art finish" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+  <img src="/projects/kimuva/shot-10.jpg" alt="Shot 09 – Packshot" style={{aspectRatio:'16/9',objectFit:'cover'}} />
+</div>
+
+| # | Shot | Timecode |
+|---|------|----------|
+| 1 | Café Opening | 0.00–2.50 |
+| 2 | 80s Street Energy | 2.50–6.00 |
+| 3 | First Drop | 6.00–8.00 |
+| 4 | Quick Camera Sweep Through Time | 8.00–11.00 |
+| 4a | Grinding the Beans | 11.00–13.00 |
+| 5 | Street in the 90s — Rain | 13.00–16.00 |
+| 6 | Steam Cleaning | 16.00–19.00 |
+| 7 | The Street Today | 19.00–22.00 |
+| 8 | Latte Art Finish | 22.00–25.50 |
+| 9 | Packshot | 25.50–30.00 |
+
+<img src="/projects/kimuva/timeline.jpg" alt="Adobe Premiere Pro editing timeline" style={{margin:'16px 0'}} />
+
+## Outcome
+
+A repeatable end-to-end workflow: **Concept → Character system → Prompt engineering → Generation → Sound & VO → Edit.**
+
+Results: higher image accuracy; consistent colour palette with rainy-mood transitions; reduced artefact count; VO speaking rate matched to the calm editing pace.
+
+**What to repeat:**
+- Multi-take sequences (2 × 4-second takes per shot)
+- Alternative lens focal lengths per scene
+- Locked colour palette as a generation anchor
+
+**Final checklist:** Composition ✓ | Colour palette ✓ | Artefacts ✓ | SFX background ✓ | VO ✓

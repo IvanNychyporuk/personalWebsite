@@ -1,0 +1,50 @@
+.wrap {
+  padding: calc(var(--header-h) + 18px) 0 0;
+}
+
+.frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 0.5px solid var(--cb);
+  background: var(--card);
+}
+
+.iframe {
+  width: 100%;
+  height: min(78vh, 860px);
+  border: 0;
+  display: block;
+  background: var(--card);
+}
+
+.note {
+  margin-top: 12px;
+  color: var(--ts);
+  line-height: 1.6;
+}
+
+.lead {
+  margin: 0 0 24px;
+  color: var(--ts);
+  line-height: 1.6;
+}
+
+.placeholder {
+  border-radius: var(--radius);
+  border: 0.5px solid var(--cb);
+  background: var(--card);
+  padding: 64px 32px;
+  text-align: center;
+}
+
+.placeholderTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.placeholderBody {
+  color: var(--ts);
+  margin: 0;
+  line-height: 1.6;
+}

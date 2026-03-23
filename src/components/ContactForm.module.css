@@ -1,0 +1,77 @@
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 0.5px solid var(--cb);
+  background: var(--card);
+  padding: 12px 12px;
+  font: inherit;
+  color: var(--tp);
+  outline: none;
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(212, 144, 58, 0.55);
+  box-shadow: 0 0 0 4px rgba(212, 144, 58, 0.12);
+}
+
+.error {
+  color: rgba(140, 30, 30, 0.9);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.note {
+  color: var(--ts);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

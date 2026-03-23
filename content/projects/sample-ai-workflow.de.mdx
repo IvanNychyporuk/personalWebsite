@@ -1,0 +1,176 @@
+---
+title: "KI Foto-Storyboard — Herbstspaziergang"
+year: 2026
+tags: ["photography", "advertising", "workflow"]
+summary: "Ein wiederholbarer KI-gestützter Workflow zur Erstellung von Fotosessions-Storyboards — vom Creative Brief bis zum fertigen Prompt-Paket mit Adobe Firefly, Nano Banana und DALL-E."
+---
+
+## Kontext
+
+Dieses Projekt wurde im Rahmen des KIBILD-Programms entwickelt. Ziel: ein wiederverwendbares, werkzeugspezifisches Prompt-System aufbauen, das eine zusammenhängende Bilderserie erzeugt — ein 10-Bild-Storyboard für eine Herbst-Fotosession in einer historischen deutschen Altstadt.
+
+Der Workflow umfasst die gesamte Pipeline: Creative Brief → Shotliste → Prompt Engineering → Qualitätssicherung → Lieferpaket.
+
+## Kreativübersicht
+
+**Thema & Setting** — Herbstspaziergang in einer gemütlichen deutschen Altstadt mit Fachwerkhäusern, Kopfsteinpflaster und Café-Fenstern.
+
+**Stimmung** — Warmherzig, vertraut, aufrichtige Zuneigung. Das Paar genießt den Spaziergang ohne aufgesetzte Posen oder dramatische Einlagen.
+
+**Palette & Styling** — Neutrale Herbsttöne: Camel, Haferbeige, Denim, Leder, Wolle, Wildleder-Texturen.
+
+**Gestaltungsprinzipien:**
+- Die Straße als Führungslinie; geringe Schärfentiefe zur Motivabgrenzung; weiche Hintergrundgeometrie
+- Kontinuität in der Farbgebung: sanfte Kontraste, warme Neutraltöne, natürliche Hauttöne in allen Bildern
+- Ein einziges Paar über die gesamte Serie; Kleidung bleibt gleich; Verbindung durch subtile Signale (synchroner Schritt, kurze Blicke, leichtes Berühren der Schulter)
+
+## Shotliste
+
+| # | Name | Beschreibung |
+|---|------|--------------|
+| 1 | Cobbles & Timber | Weitläufige Einstellung; Paar mitten in der Bewegung, entspannte Haltung. 3:2 oder 16:9, ca. 35 mm, Augenhöhe. |
+| 2 | Archway Hug | Umarmung, eingerahmt von einem Stein-/Ziegelbogen; Intimität ohne Kitsch. Ca. 85 mm, zentriert oder Drittelregel. |
+| 3 | Boots & Puddles | Nahaufnahme aus niedriger Perspektive von Stiefeln, die in eine flache Pfütze treten; Fassaden- und Blattspiegelungen. |
+| 4 | Konvergierende Linien | Mittelbreite Einstellung; Hände berühren sich fast; lineare Tiefe. |
+| 5 | Schulterblick | Halbnahe Einstellung; gemeinsames, leichtes Lächeln; unscharfer Hintergrund. |
+| 6 | Café-Fenster | Paar wird in Glasscheibe gespiegelt; strukturelle Glasdetails. |
+| 7 | Hände & Texturen | Gestrickter Schal, Lederriemen, Wollmäntel — taktile Nahaufnahmen. |
+| 8 | Portrait Pair | Nebeneinander; geringe Schärfentiefe; Bokeh mit Herbstlaub. |
+| 9 | Negativer Raummoment | Eine Person im Vordergrund unscharf, Partnerin scharf im Mittelgrund. |
+| 10 | Hintergrundbeleuchteter Randlichteffekt | Haar-/Schulterglanz; warmer Blätterfall. |
+
+## Visuelle und technische Richtlinien
+
+**Objektiv & Tiefe**
+- Vollformat-Ästhetik: ca. 35 mm (Weitwinkel), ca. 50 mm (mittlere Brennweite), ca. 85 mm (Porträt)
+- f/2–2.8 für die Trennung von Motiv und Hintergrund; f/4 optional
+
+**Bewegung & Licht**
+- 1/320 s als Grundwert; Anpassung für Spritzwasseraufnahmen
+- Sanftes Tageslicht als Schlüsselfaktor (bewölkter Himmel oder niedriger Sonnenstand)
+- Sanfter Kontrast; keine überstrahlten Schattenbereiche; warme Neutraltöne in den Highlights
+
+**Textur-Priorität:** Wolle / Strick / Wildleder / Leder; glänzende Pflastersteine nach Regen; Fensterreflexionen für die Schichtung.
+
+## KI-Tool-Integration
+
+**Adobe Firefly** — Kompakte Prompts; Inhalt, Beleuchtung, Objektiv und Stimmung an den Anfang stellen. Immer ein Kameraperspektiven-Tag hinzufügen (z. B. „Augenhöhe", „Weitwinkel", „Nahaufnahme", „Über-die-Schulter"). Übermäßig lange technische Beschreibungen vermeiden.
+
+> Beispiel: *„Herbstliche Altstadtstraße, Paar mitten im Gehen, ungezwungener Blick; warme, neutrale Farbpalette; sanftes Tageslicht, leichter Kontrast; Vollformat-Aufnahme, ca. 35 mm, geringe Schärfentiefe; Weitwinkelaufnahme, konvergierende Linien, Kopfsteinpflaster und Fachwerkhäuser; natürliche Hauttöne."*
+
+**Nano Banana (JSON)** — Modulare Felder: `content`, `camera`, `light`, `composition`, `quality`, `negatives`. Zahlenwerte explizit angeben (Blende, Brennweite, Verschlusszeit). Stilbezeichnungen minimieren.
+
+**DALL·E** — Am besten für narrative Szenen-Prompts mit Kontext und Charakterbeschreibung.
+
+## Charakterkontinuität
+
+Für jeden Charakter wurden zuerst ganzfigurige Frontansicht-Referenzbilder erstellt und als Ankerpunkte für alle Shots verwendet. Festgelegte Parameter: Altersgruppe/Körperbau, Haarlänge/-farbe/-frisur, Kleidungspalette (Camel/Haferbeige/Denim/Leder), Schuhstil, Mantelschnitt, Schal-/Stricktextur, Accessoires (Uhr/Lederarmband) und Passform.
+
+Das verhindert visuellen Drift über die Serie hinweg und stabilisiert Farbgebung und Silhouette.
+
+<div style={{display:'flex',justifyContent:'center',gap:'24px',margin:'16px 0'}}>
+  <img src="/projects/kibild/character-female.jpg" alt="Charakter-Referenz – weiblich" style={{width:'auto',maxWidth:'340px',flexShrink:0}} />
+  <img src="/projects/kibild/character-male.jpg" alt="Charakter-Referenz – männlich" style={{width:'auto',maxWidth:'340px',flexShrink:0}} />
+</div>
+
+## Exposition — Realistischer Output
+
+Die erste Generierungsrunde mit Adobe Firefly für das Altstadt-Herbst-Setting. Zwölf Hero-Bilder der Session:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo1-01.jpg" alt="Exposition – Bild 1" />
+  <img src="/projects/kibild/expo1-02.jpg" alt="Exposition – Bild 2" />
+  <img src="/projects/kibild/expo1-03.jpg" alt="Exposition – Bild 3" />
+  <img src="/projects/kibild/expo1-04.jpg" alt="Exposition – Bild 4" />
+  <img src="/projects/kibild/expo1-05.jpg" alt="Exposition – Bild 5" />
+  <img src="/projects/kibild/expo1-06.jpg" alt="Exposition – Bild 6" />
+</div>
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'8px 0'}}>
+  <img src="/projects/kibild/expo2-01.jpg" alt="Exposition – Bild 7" />
+  <img src="/projects/kibild/expo2-02.jpg" alt="Exposition – Bild 8" />
+  <img src="/projects/kibild/expo2-03.jpg" alt="Exposition – Bild 9" />
+  <img src="/projects/kibild/expo2-04.jpg" alt="Exposition – Bild 10" />
+  <img src="/projects/kibild/expo2-05.jpg" alt="Exposition – Bild 11" />
+  <img src="/projects/kibild/expo2-06.jpg" alt="Exposition – Bild 12" />
+</div>
+
+## Exposition — Style Transfer (Futuristisch)
+
+Dasselbe Prompt-System mit futuristischer Architektur-Umgebung — Test der Prompt-Portabilität:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo-fut-01.jpg" alt="Futuristisch – Weitwinkel" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-02.jpg" alt="Futuristisch – Korridor" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-03.jpg" alt="Futuristisch – Brücke" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-04.jpg" alt="Futuristisch – Portrait" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-05.jpg" alt="Futuristisch – Kuppel" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-06.jpg" alt="Futuristisch – Neon" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-07.jpg" alt="Futuristisch – Glaswand" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo-fut-08.jpg" alt="Futuristisch – Nachtbrücke" style={{aspectRatio:'3/4',objectFit:'cover'}} />
+</div>
+
+## Qualitätsrichtlinien & Fehlerbehebung
+
+**Negativbeispiele als Guardrails:**
+- Künstlich wirkende, glatte Haut
+- Comicartiges Aussehen
+- Übermäßig scharfe Lichthöfe
+- Verzerrte Hände
+- Grelle oder übersättigte Farbtöne
+
+Typische KI-Artefakte und deren Korrektur mit Fireflyʼs generativer Füllung (überflüssiger Hut, verschwommene Gesichter, dritte Hand, leere Zonen):
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/troubleshoot-before.jpg" alt="Vorher – Artefakte" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/troubleshoot-during.jpg" alt="Während – Generative Fill" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/troubleshoot-after.jpg" alt="Nachher – Sauberes Ergebnis" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+</div>
+
+## Aquarell-Remix
+
+Sekundärer Output: Die realistischen Bilder wurden mit DALL-E in einen Aquarellstil überführt. Der Master-Prompt entstand durch Vergleich eines realistischen Referenzbildes mit einem aquarellierten Remix. Komposition und Farbpalette bleiben erhalten.
+
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',margin:'16px 0'}}>
+  <img src="/projects/kibild/watercolor-reference.jpg" alt="Realistisches Referenzbild" style={{objectFit:'cover'}} />
+  <img src="/projects/kibild/watercolor-pair.jpg" alt="Aquarell-Version" style={{objectFit:'cover'}} />
+</div>
+
+Remix-Pipeline — drei Input/Output-Paare:
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/remix-in-01.jpg" alt="Input 1" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-in-02.jpg" alt="Input 2" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-in-03.jpg" alt="Input 3" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-02a.jpg" alt="Aquarell-Output 1" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-01.jpg" alt="Aquarell-Output 2" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+  <img src="/projects/kibild/remix-out-02b.jpg" alt="Aquarell-Output 3" style={{aspectRatio:'4/3',objectFit:'cover'}} />
+</div>
+
+## Exposition — Aquarell-Serie
+
+<div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'8px',margin:'16px 0'}}>
+  <img src="/projects/kibild/expo3-01.jpg" alt="Aquarell – Weitwinkel" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-02.jpg" alt="Aquarell – Torbogen" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-03.jpg" alt="Aquarell – Straße" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-04.jpg" alt="Aquarell – Portrait" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-05.jpg" alt="Aquarell – Blatt" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+  <img src="/projects/kibild/expo3-06.jpg" alt="Aquarell – Randlicht" style={{aspectRatio:'3/2',objectFit:'cover'}} />
+</div>
+
+## Leistungen
+
+- Storyboard-Set mit 10 Bildern, Bildunterschriften und kurzen technischen Anmerkungen pro Einzelbild
+- Zwei Referenzbilder der Figur (Vorderansicht, Ganzkörperansicht)
+- Sofort einsatzbereites Prompt-Paket: kurze Firefly-Prompts (mit Kameraperspektiven-Tag), Nano Banana JSON-Blöcke für 2–3 Heldenbilder, DALL·E-Narrative-Prompts
+- Aquarell-Masterprompt
+
+## Ergebnis
+
+Ein wiederholbarer End-to-End-Workflow: **Analyse → Prompts → Iteration → Qualitätssicherung → Verpackung.**
+
+Wichtigste Erkenntnisse:
+- Mit einer kompakten Stil-Kapsel beginnen: Kamera-/Objektivgefühl, Lichtführung, Farbpalette, Texturen, Negative
+- Zahlen statt Adjektiven (Brennweite, Blende, Verschlusszeit)
+- Prompts dem richtigen Tool zuordnen — jedes hat andere Stärken
+- Charakter-Referenzen früh festlegen; die visuelle Konsistenz einer Serie hängt davon ab
