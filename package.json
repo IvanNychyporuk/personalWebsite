@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "cd chatbot-source && npm ci && npm run build && cp -r dist/. ../public/chatbot/",
+    "prebuild": "cd chatbot-source && npm ci --include=dev && npm run build && cp -r dist/. ../public/chatbot/",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
