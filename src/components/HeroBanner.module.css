@@ -22,19 +22,6 @@
   filter: none;
 }
 
-.videoPortrait {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .videoLandscape {
-    display: none;
-  }
-
-  .videoPortrait {
-    display: block;
-  }
-}
 
 .grain {
   position: absolute;
