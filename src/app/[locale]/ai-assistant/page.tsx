@@ -18,9 +18,13 @@ export default async function AiAssistantPage({
       <div className="container">
         <p className="kicker">{dict.nav.aiAssistant}</p>
         <p className={styles.lead}>{dict.aiAssistant.lead}</p>
-        <div className={styles.placeholder}>
-          <p className={styles.placeholderTitle}>{dict.aiAssistant.placeholderTitle}</p>
-          <p className={styles.placeholderBody}>{dict.aiAssistant.placeholderBody}</p>
+        <div className={styles.frame}>
+          <iframe
+            src="/chatbot/index.html"
+            className={styles.iframe}
+            title="AI Assistant"
+            allow="autoplay"
+          />
         </div>
       </div>
     </main>

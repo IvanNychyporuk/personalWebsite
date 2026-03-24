@@ -63,7 +63,7 @@
   },
   "aiAssistant": {
     "title": "AI Assistant",
-    "lead": "A dedicated chat experience will live here. It will explain my skills and how I work for employers and partners.",
+    "lead": "Ask about my skills, projects, or how I work. The assistant can answer questions and connect you with me directly.",
     "placeholderTitle": "Coming soon",
     "placeholderBody": "This is a reserved space for the chatbot UI. For now, please reach out via email or LinkedIn."
   },
