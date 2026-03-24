@@ -48,3 +48,23 @@
   margin: 0;
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .iframe {
+    height: min(72vh, 680px);
+  }
+
+  .placeholder {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .iframe {
+    height: 65vh;
+  }
+
+  .wrap {
+    padding-top: calc(var(--header-h) + 10px);
+  }
+}

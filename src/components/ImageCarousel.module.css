@@ -108,3 +108,36 @@
 }
 
 .dotActive { background: #fff; }
+
+@media (max-width: 768px) {
+  .thumbnails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .arrow {
+    font-size: 2.8rem;
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnails {
+    grid-template-columns: 1fr;
+  }
+
+  .lightboxImg {
+    max-width: 96vw;
+    max-height: 80vh;
+  }
+
+  .close {
+    top: 14px;
+    right: 16px;
+    font-size: 1.8rem;
+  }
+
+  .arrow {
+    font-size: 2rem;
+    padding: 0 8px;
+  }
+}

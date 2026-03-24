@@ -101,3 +101,22 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22) !important;
 }
 
+@media (max-width: 768px) {
+  .brandRole {
+    display: none;
+  }
+
+  .brand {
+    flex: 0 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+
+  .brandName {
+    font-size: 17px;
+  }
+}

@@ -67,3 +67,13 @@
     font-size: 36px;
   }
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(26px, 7vw, 32px);
+  }
+
+  .page {
+    padding-top: calc(var(--header-h) + 16px);
+  }
+}

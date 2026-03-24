@@ -27,12 +27,6 @@
   margin: 8px 0 16px;
 }
 
-@media (max-width: 980px) {
-  .sectionTitle {
-    font-size: 19px;
-  }
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -114,11 +108,44 @@
 }
 
 @media (max-width: 980px) {
+  .sectionTitle {
+    font-size: 19px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .process {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
   }
 
   .process {
     grid-template-columns: 1fr;
+  }
+
+  .section {
+    margin-top: 36px;
+  }
+
+  .contactBand {
+    margin-top: 36px;
+    padding: 32px 0 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    padding: 14px 16px;
+  }
+
+  .step {
+    padding: 12px 10px;
   }
 }

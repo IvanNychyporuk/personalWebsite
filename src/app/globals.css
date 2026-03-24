@@ -66,6 +66,12 @@ a:hover {
   margin: 0 auto;
 }
 
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+}
+
 /* ── Cards ──────────────────────────────────────────────────────────────── */
 .card {
   background: var(--card);
