@@ -70,9 +70,6 @@ export function MobileMenu({
                 {items.map((l) => (
                   <Link key={l.href} href={l.href} className={styles.link}>
                     <span>{l.label}</span>
-                    <span className={styles.hint} aria-hidden="true">
-                      {l.href}
-                    </span>
                   </Link>
                 ))}
               </div>
