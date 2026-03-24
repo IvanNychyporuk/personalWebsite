@@ -10,35 +10,69 @@
   },
   "home": {
     "heroKicker": "KI, Mediengestaltung und Integration",
-    "heroTitle": "Lets build content systems that ship.\nFast, high-quality, human-led —\nwith AI where it helps",
-    "heroLead": "I'm Ivan Nychyporuk — AI Media / Content Designer & Creator and AI integration consultant. I bring 15+ years of compositing craft from film and advertising into modern content pipelines.",
+    "heroTitle": "Lass uns Content-Systeme bauen, die funktionieren.\nSchnell, hochwertig, menschlich geführt —\nmit KI dort, wo sie hilft",
+    "heroLead": "Ich bin Ivan Nychyporuk — KI-Mediengestalter, Content Creator und KI-Integrationsberater. Ich bringe über 15 Jahre Compositing-Erfahrung aus Film und Werbung in moderne Content-Pipelines.",
     "heroCtaPrimary": "Projekte ansehen",
     "heroCtaSecondary": "Kontakt",
+
+    "profileKicker": "Profil",
+    "profileTitle": "KI-Medien / Content Creator / VFX Digital Compositor / KI-Integrationsberater",
+    "profileBody": "Über 15 Jahre Compositing-Erfahrung aus Film und Werbung – jetzt eingesetzt in modernen, KI-gestützten Content-Workflows.",
+
     "highlightsKicker": "Highlights",
-    "highlightsTitle": "Uebersicht",
+    "highlightsTitle": "Eine Karriere mit Fokus auf visuelle Präzision",
+    "highlight1Badge": "Film + Werbung",
+    "highlight1Title": "15+ Jahre in Film + Werbung",
+    "highlight1Body": "VFX Compositing und Postproduktion in internationalen Teams – mit einem ausgeprägten Blick für Komposition, Farbe und Typografie.",
+    "highlight2Badge": "Streaming",
+    "highlight2Title": "Streaming-taugliche Qualität",
+    "highlight2Body": "Erfahrung auf Produktionen, darunter Netflix-Releases (Credits auf Anfrage verfügbar).",
+    "highlight3Badge": "KI-nativ",
+    "highlight3Title": "Jetzt: KI-Medien + Content-Systeme",
+    "highlight3Body": "Training und Praxis in KI-gestützten Text-, Bild-, Video-, Audio- und Web-Workflows – mit menschlicher Steuerung und Qualitätskontrolle.",
+
     "capabilitiesKicker": "Was ich mache",
-    "capabilitiesTitle": "Leistungen",
+    "capabilitiesTitle": "Kreative Produktion + KI-native Workflows",
+    "cap1Title": "KI-Content-Produktion",
+    "cap1Body": "Kurzvideos, Visuals und Texte – von der Idee bis zum Output, optimiert für Geschwindigkeit, Konsistenz und Markenstimme.",
+    "cap2Title": "KI-Integrationsberatung",
+    "cap2Body": "Workflow-Design, Prompt-Bibliotheken, QA-Standards und Tool-Auswahl, die zu echten Teams und echten Deadlines passen.",
+    "cap3Title": "Visuelle Handwerkskunst (VFX-basiert)",
+    "cap3Body": "Retusche, Compositing, Look Development und detailgenaue Verfeinerung, damit der Output überzeugend und stimmig bleibt.",
+
     "processKicker": "Prozess",
-    "processTitle": "Ablauf",
+    "processTitle": "Vom Briefing bis zur Lieferung",
+    "step1Title": "Briefing",
+    "step1Body": "Ziele, Zielgruppe, Rahmenbedingungen, Markenreferenzen.",
+    "step2Title": "Konzept",
+    "step2Body": "Narrativ, Storyboard und Prompts – abgestimmt auf den Ton.",
+    "step3Title": "Produktion",
+    "step3Body": "Generieren, bearbeiten und iterieren mit strikter Versionskontrolle.",
+    "step4Title": "Qualitätsprüfung",
+    "step4Body": "Visuelle Checks, Konsistenz, Compliance und Feinschliff.",
+    "step5Title": "Lieferung",
+    "step5Body": "Finale Exports + Richtlinien, damit das System weiter funktioniert.",
+
     "contactKicker": "Kontakt",
-    "contactTitle": "Kontakt"
+    "contactTitle": "Lass uns reden",
+    "contactBody": "E-Mail eignet sich am besten für Arbeitsanfragen und Kooperationen."
   },
   "contact": {
     "title": "Kontakt",
-    "lead": "Bitte nutzen Sie vorerst die englische Version oder kontaktieren Sie mich per E-Mail oder LinkedIn."
+    "lead": "Für Stellen, Projekte oder Partnerschaften ist E-Mail am besten. Weitere Unterlagen stelle ich gerne auf Anfrage zur Verfügung."
   },
   "aiAssistant": {
     "title": "KI Assistent",
-    "lead": "Hier wird spaeter ein Chatbot eingebunden.",
-    "placeholderTitle": "Bald verfuegbar",
-    "placeholderBody": "Platzhalter fuer die Chatbot-Oberflaeche. Bitte kontaktieren Sie mich per E-Mail oder LinkedIn."
+    "lead": "Hier wird bald ein dedizierter Chat-Bereich eingebunden, der meine Fähigkeiten und Arbeitsweise für Arbeitgeber und Partner erklärt.",
+    "placeholderTitle": "Bald verfügbar",
+    "placeholderBody": "Dieser Bereich ist für die Chatbot-Oberfläche reserviert. Bitte kontaktieren Sie mich vorerst per E-Mail oder LinkedIn."
   },
   "impressum": {
     "title": "Impressum",
-    "placeholder": "Impressum-Inhalte werden hinzugefuegt, sobald die erforderlichen Angaben vorliegen."
+    "placeholder": "Impressum-Inhalte werden hinzugefügt, sobald die erforderlichen Angaben vorliegen."
   },
   "privacy": {
     "title": "Datenschutz",
-    "placeholder": "Datenschutz-Inhalte werden hinzugefuegt, sobald die erforderlichen Angaben vorliegen."
+    "placeholder": "Datenschutz-Inhalte werden hinzugefügt, sobald die erforderlichen Angaben vorliegen."
   }
 }
