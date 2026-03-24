@@ -109,6 +109,10 @@
   .brand {
     flex: 0 1 auto;
   }
+
+  .aiButton {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -118,5 +122,10 @@
 
   .brandName {
     font-size: 17px;
+    white-space: nowrap;
+  }
+
+  .inner {
+    gap: 8px;
   }
 }

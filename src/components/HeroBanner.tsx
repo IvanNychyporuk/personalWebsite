@@ -13,7 +13,7 @@ export function HeroBanner({
     <section className={styles.hero} aria-label="Hero">
       <div className={styles.media} aria-hidden="true">
         <video
-          className={styles.video}
+          className={`${styles.video} ${styles.videoLandscape}`}
           autoPlay
           muted
           loop
@@ -21,6 +21,16 @@ export function HeroBanner({
           preload="metadata"
         >
           <source src="/hero/hero.mp4" type="video/mp4" />
+        </video>
+        <video
+          className={`${styles.video} ${styles.videoPortrait}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/hero/hero_p.mp4" type="video/mp4" />
         </video>
       </div>
       <div className={styles.grain} aria-hidden="true" />
