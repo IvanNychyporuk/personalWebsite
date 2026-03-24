@@ -343,7 +343,7 @@ const EmployerChat: React.FC<EmployerChatProps> = ({ profile, greetingText, onSt
             onClick={async () => {
               const newState = !isVoiceEnabled;
               setIsVoiceEnabled(newState);
-              if (!newState) stopPlayback();
+              if (!newState) { onStopGreeting(); stopPlayback(); }
               else await initAudioContext();
             }}
             title={isVoiceEnabled ? "Disable voice" : "Enable voice"}
