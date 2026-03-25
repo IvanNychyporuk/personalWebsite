@@ -52,6 +52,12 @@ const ConsentGate: React.FC<ConsentGateProps> = ({ onConsent }) => {
         >
           Enter Assistant Workspace
         </button>
+
+        <p className="text-center text-xs text-slate-400 pt-1">
+          <a href="/en/privacy" target="_blank" rel="noreferrer" className="hover:text-slate-600 underline">Privacy Policy</a>
+          {" · "}
+          <a href="/en/impressum" target="_blank" rel="noreferrer" className="hover:text-slate-600 underline">Impressum</a>
+        </p>
       </div>
     </div>
   );

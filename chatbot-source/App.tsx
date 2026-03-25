@@ -22,7 +22,6 @@ const DEFAULT_PROFILE: CandidateProfile = {
     'VFX Digital Compositing',
     'Nuke',
     'Fusion',
-    'After Effects',
     'DaVinci Resolve',
     'Photoshop',
     'ChatGPT',
@@ -52,8 +51,10 @@ PROFESSIONAL BACKGROUND:
 const App: React.FC = () => {
   const alreadyConsented = localStorage.getItem('ivan_consent') === 'true';
   const [hasConsented, setHasConsented] = useState(alreadyConsented);
-  const [chatReady, setChatReady] = useState(alreadyConsented); // skip greeting for returning visitors
-  const [greetingAudio, setGreetingAudio] = useState<string | null>(null);
+  const [chatReady, setChatReady] = useState(alreadyConsented);
+  // greetingReady: true means audio is loaded and greeting text+voice can start simultaneously.
+  // For returning visitors it starts true (no greeting needed — chat history is shown).
+  const [greetingReady, setGreetingReady] = useState(alreadyConsented);
   const [mode, setMode] = useState<AppMode>(AppMode.EMPLOYER);
   const [profile, setProfile] = useState<CandidateProfile>(DEFAULT_PROFILE);
   const greetingSourceRef = useRef<AudioBufferSourceNode | null>(null);
@@ -64,19 +65,9 @@ const App: React.FC = () => {
     if (savedProfile) {
       try { setProfile(JSON.parse(savedProfile)); } catch (e) {}
     }
-    // Pre-fetch greeting audio silently while user reads consent
-    generateSpeech(GREETING_TEXT)
-      .then(audio => { if (audio) setGreetingAudio(audio); })
-      .catch(() => {});
+    // NOTE: generateSpeech is intentionally NOT called here.
+    // Google Gemini API is only contacted after the user gives explicit consent — see handleConsent().
   }, []);
-
-  // When audio becomes ready AND user has consented but chat not shown yet → play + open chat
-  useEffect(() => {
-    if (hasConsented && !chatReady && greetingAudio && consentCtxRef.current) {
-      playGreeting(consentCtxRef.current, greetingAudio);
-      setChatReady(true);
-    }
-  }, [greetingAudio, hasConsented, chatReady]);
 
   const playGreeting = (ctx: AudioContext, audioData: string) => {
     try {
@@ -100,17 +91,22 @@ const App: React.FC = () => {
 
   const handleConsent = () => {
     localStorage.setItem('ivan_consent', 'true');
-    // Create + unlock AudioContext synchronously during the user gesture
+    // Create + unlock AudioContext synchronously during the user gesture (required for autoplay)
     const ctx = new AudioContext();
     ctx.resume();
     consentCtxRef.current = ctx;
     setHasConsented(true);
-    // If audio already preloaded, open chat immediately
-    if (greetingAudio) {
-      playGreeting(ctx, greetingAudio);
-      setChatReady(true);
-    }
-    // Otherwise the effect above will trigger when greetingAudio arrives
+    setChatReady(true); // Show chat UI immediately (user sees the interface, not a blank spinner)
+    // Fetch greeting audio — only contacted after explicit consent (GDPR compliant)
+    // When audio arrives: play it and start the greeting text at the same time (synchronized)
+    generateSpeech(GREETING_TEXT)
+      .then(audio => {
+        if (audio && consentCtxRef.current) playGreeting(consentCtxRef.current, audio);
+        setGreetingReady(true); // triggers typewriter text to start simultaneously with audio
+      })
+      .catch(() => {
+        setGreetingReady(true); // audio failed — show greeting text anyway
+      });
   };
 
   const stopGreeting = () => {
@@ -162,6 +158,7 @@ const App: React.FC = () => {
         <EmployerChat
           profile={profile}
           greetingText={GREETING_TEXT}
+          greetingReady={greetingReady}
           onStopGreeting={stopGreeting}
         />
       )}

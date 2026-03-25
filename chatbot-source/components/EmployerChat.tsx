@@ -5,6 +5,7 @@ import { sendMessageToGemini, generateSpeech } from '../services/geminiService';
 interface EmployerChatProps {
   profile: CandidateProfile;
   greetingText: string;
+  greetingReady: boolean;
   onStopGreeting: () => void;
 }
 
@@ -112,7 +113,7 @@ async function decodeAudioData(data: Uint8Array, ctx: AudioContext): Promise<Aud
   return buffer;
 }
 
-const EmployerChat: React.FC<EmployerChatProps> = ({ profile, greetingText, onStopGreeting }) => {
+const EmployerChat: React.FC<EmployerChatProps> = ({ profile, greetingText, greetingReady, onStopGreeting }) => {
   const [messages, setMessages] = useState<Message[]>(() => {
     const saved = localStorage.getItem('ivan_chat_history');
     return saved ? JSON.parse(saved) : [];
@@ -172,10 +173,10 @@ const EmployerChat: React.FC<EmployerChatProps> = ({ profile, greetingText, onSt
   };
 
   useEffect(() => {
-    if (messages.length === 0) {
+    if (greetingReady && messages.length === 0) {
       setMessages([{ id: 'init', role: 'model', content: greetingText, timestamp: Date.now(), isStreaming: true }]);
     }
-  }, []);
+  }, [greetingReady]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -374,6 +375,18 @@ const EmployerChat: React.FC<EmployerChatProps> = ({ profile, greetingText, onSt
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-6 space-y-4 scroll-smooth scrollbar-hide" style={{ backgroundColor: '#FAF4EC' }}>
+        {!greetingReady && messages.length === 0 && (
+          <div className="flex justify-start">
+            <div className="bg-white border border-burning-orange-100 rounded-2xl rounded-bl-none px-5 py-4 flex flex-col space-y-2 shadow-sm min-w-[160px]">
+              <div className="flex space-x-1.5">
+                <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '200ms' }}></div>
+                <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '400ms' }}></div>
+              </div>
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest animate-pulse">Assistant is getting ready...</span>
+            </div>
+          </div>
+        )}
         {messages.map((msg, i) => {
           const showDaySep = !allMessagesToday && (
             i === 0 || getDayLabel(messages[i - 1].timestamp) !== getDayLabel(msg.timestamp)

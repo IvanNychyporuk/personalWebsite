@@ -69,9 +69,9 @@ function ContentDE() {
         <p className={styles.lead}>
           Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
           Bearbeitung eingehender Anfragen) bzw. Art. 6 Abs. 1 lit. b DSGVO bei
-          vorvertraglichen Anfragen. Die Daten werden gelöscht, sobald Ihre Anfrage
-          abschließend bearbeitet wurde und keine weitere Kommunikation zu erwarten ist,
-          sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+          vorvertraglichen Anfragen. Kontaktanfragen werden nach Abschluss der Kommunikation,
+          spätestens jedoch nach 12 Monaten, aus meinem Postfach gelöscht, sofern keine
+          gesetzlichen Aufbewahrungspflichten entgegenstehen.
         </p>
       </section>
 
@@ -79,7 +79,9 @@ function ContentDE() {
         <h2 className={styles.blockTitle}>4. KI-Assistent</h2>
         <p className={styles.lead} style={{ marginTop: 0 }}>
           Der Bereich „KI-Assistent" bindet eine Chatbot-Anwendung ein, die auf Google
-          Gemini (Google LLC, USA) basiert. Wenn Sie den Chatbot nutzen, werden Ihre Eingaben
+          Gemini (Google LLC, USA) basiert. Beim ersten Besuch wird ein Einwilligungsdialog
+          angezeigt. Die Google-Gemini-API wird <strong>ausschließlich nach Ihrer ausdrücklichen
+          Einwilligung</strong> kontaktiert. Wenn Sie den Chatbot nutzen, werden Ihre Eingaben
           von Googles KI-Diensten verarbeitet. Ich speichere keine Chatbot-Konversationen selbst.
         </p>
         <p className={styles.lead}>
@@ -87,6 +89,34 @@ function ContentDE() {
           <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
             policies.google.com/privacy
           </a>
+        </p>
+      </section>
+
+      <section className={`card ${styles.block}`}>
+        <h2 className={styles.blockTitle}>4a. Browser-Speicherung (KI-Assistent)</h2>
+        <p className={styles.lead} style={{ marginTop: 0 }}>
+          Der KI-Assistent nutzt ausschließlich den lokalen Browserspeicher
+          (<em>localStorage</em>) Ihres Geräts, um folgende Daten zu speichern:
+        </p>
+        <ul className={styles.list}>
+          <li>
+            <strong>ivan_consent:</strong> Vermerkt, dass Sie Ihre Einwilligung erteilt haben.
+            Verhindert das erneute Anzeigen des Einwilligungsdialogs bei Folgebesuchen.
+          </li>
+          <li>
+            <strong>ivan_profile:</strong> Optional – speichert ein angepasstes Kandidatenprofil,
+            sofern das Admin-Panel genutzt wurde.
+          </li>
+        </ul>
+        <p className={styles.lead}>
+          Diese Daten verbleiben ausschließlich in Ihrem Browser und werden von dieser Website
+          nicht an Server übertragen. Sie bleiben gespeichert, bis Sie Ihren Browser-Cache leeren
+          oder die Daten über das Datenschutzmenü (Papierkorb-Symbol im Chat) löschen.
+        </p>
+        <p className={styles.lead}>
+          Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Ihre ausdrückliche Einwilligung über
+          den Einwilligungsdialog). TDDDG §25 – die Speicherung ist auf das für den
+          ausdrücklich angeforderten Dienst unbedingt Erforderliche beschränkt.
         </p>
       </section>
 
@@ -132,6 +162,7 @@ function ContentDE() {
         <ul className={styles.list}>
           <li>Hosting / Server-Logs: Art. 6 Abs. 1 lit. f DSGVO</li>
           <li>Kontaktformular: Art. 6 Abs. 1 lit. f bzw. lit. b DSGVO</li>
+          <li>KI-Assistent / Browser-Speicherung: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), TDDDG §25</li>
         </ul>
       </section>
 
@@ -204,8 +235,8 @@ function ContentEN() {
         <p className={styles.lead}>
           Legal basis: Art. 6(1)(f) GDPR (legitimate interest in processing incoming
           inquiries) or Art. 6(1)(b) GDPR where the inquiry relates to pre-contractual
-          steps. Data is deleted once your inquiry has been fully resolved and no further
-          communication is expected, unless statutory retention obligations apply.
+          steps. Contact inquiries are deleted once the communication has concluded, and
+          in any case within 12 months, unless statutory retention obligations apply.
         </p>
       </section>
 
@@ -213,14 +244,43 @@ function ContentEN() {
         <h2 className={styles.blockTitle}>4. AI Assistant</h2>
         <p className={styles.lead} style={{ marginTop: 0 }}>
           The AI Assistant section embeds a chatbot application powered by Google Gemini
-          (Google LLC, USA). When you use the chatbot, your inputs are processed by
-          Google's AI services. I do not store chatbot conversations myself.
+          (Google LLC, USA). On first visit a consent dialog is shown. The Google Gemini API
+          is contacted <strong>only after you give explicit consent</strong>. When you use the
+          chatbot, your inputs are processed by Google's AI services. I do not store chatbot
+          conversations myself.
         </p>
         <p className={styles.lead}>
           Please refer to Google's Privacy Policy:{" "}
           <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">
             policies.google.com/privacy
           </a>
+        </p>
+      </section>
+
+      <section className={`card ${styles.block}`}>
+        <h2 className={styles.blockTitle}>4a. Browser Storage (AI Assistant)</h2>
+        <p className={styles.lead} style={{ marginTop: 0 }}>
+          The AI Assistant uses your browser's <em>localStorage</em> exclusively to store:
+        </p>
+        <ul className={styles.list}>
+          <li>
+            <strong>ivan_consent:</strong> Records that you have given consent. Prevents the
+            consent dialog from reappearing on subsequent visits.
+          </li>
+          <li>
+            <strong>ivan_profile:</strong> Optional — stores a customised candidate profile
+            if the Admin Panel has been used.
+          </li>
+        </ul>
+        <p className={styles.lead}>
+          This data is stored only in your own browser and is never transmitted to any server
+          by this website. It persists until you clear your browser data or delete it via the
+          Privacy Menu (trash icon in the chat interface).
+        </p>
+        <p className={styles.lead}>
+          Legal basis: Art. 6(1)(a) GDPR (your explicit consent given via the consent dialog).
+          TDDDG §25 — storage on the device is limited to what is strictly necessary to provide
+          the explicitly requested service.
         </p>
       </section>
 
@@ -265,6 +325,7 @@ function ContentEN() {
         <ul className={styles.list}>
           <li>Hosting / server logs: Art. 6(1)(f) GDPR</li>
           <li>Contact form: Art. 6(1)(f) or Art. 6(1)(b) GDPR</li>
+          <li>AI Assistant / browser storage: Art. 6(1)(a) GDPR (consent), TDDDG §25</li>
         </ul>
       </section>
 
