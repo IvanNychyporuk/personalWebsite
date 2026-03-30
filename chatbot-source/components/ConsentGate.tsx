@@ -8,7 +8,8 @@ const ConsentGate: React.FC<ConsentGateProps> = ({ onConsent }) => {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-accent/95 backdrop-blur-md p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-accent/95 backdrop-blur-md">
+      <div className="flex min-h-full items-center justify-center p-4">
       <div className="bg-burning-orange-50 rounded-2xl shadow-2xl max-w-lg w-full p-8 space-y-6 border border-burning-orange-100">
         <div className="text-center">
           <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -58,6 +59,7 @@ const ConsentGate: React.FC<ConsentGateProps> = ({ onConsent }) => {
           {" · "}
           <a href="/en/impressum" target="_blank" rel="noreferrer" className="hover:text-slate-600 underline">Impressum</a>
         </p>
+      </div>
       </div>
     </div>
   );

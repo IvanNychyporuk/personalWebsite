@@ -5,7 +5,7 @@ import AdminPanel from './components/AdminPanel';
 import { CandidateProfile, AppMode } from './types';
 import { generateSpeech } from './services/geminiService';
 
-const GREETING_TEXT = `Hello! I am Ivan's AI Assistant. I'm here to help you explore Ivan's expertise as an AI Media & Content Designer, AI Workflow Specialist, and VFX Compositor.\n\nI operate under strict GDPR guidelines—you can delete your chat history at any time using the trash icon in the top right. How can I help you today?`;
+const GREETING_TEXT = `Hello! I am Ivan's AI Assistant. I'm here to help you explore Ivan's expertise as an AI Media & Content Designer, AI Workflow Specialist, and VFX Compositor.\n\nFeel free to write in your preferred language — I speak many languages.\n\nI operate under strict GDPR guidelines—you can delete your chat history at any time using the trash icon in the top right. How can I help you today?`;
 
 const DEFAULT_PROFILE: CandidateProfile = {
   name: 'Ivan',
