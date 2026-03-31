@@ -81,10 +81,10 @@ const VFX_TECHNIQUES_DE = [
 ];
 
 const LANGUAGES_EN = [
-  "Ukrainian (native)",
-  "Russian (native)",
   "English (B2)",
   "German (B1, improving)",
+  "Ukrainian (native)",
+  "Russian (native)",
 ];
 
 const LANGUAGES_DE = [
