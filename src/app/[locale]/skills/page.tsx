@@ -5,14 +5,13 @@ import styles from "../content.module.css";
 
 const AI_TOOLS = [
   "ChatGPT",
-  "Claude / Claude Code",
+  "Claude Code/ Claude Cowork",
+  "Antigravity / VS Code",
   "Google AI Studio / Google Veo / Nano Banana",
   "DALL-E",
   "Adobe Firefly",
   "Suno (AI music generation)",
   "ElevenLabs (AI voice & voice-over)",
-  "Sonoteller.ai (track analysis)",
-  "FADR (stem separation)",
   "Cloudflare Workers (serverless AI proxy)",
   "Unity (AI-assisted game prototyping)",
 ];
