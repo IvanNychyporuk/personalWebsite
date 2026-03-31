@@ -6,7 +6,7 @@ import styles from "../content.module.css";
 const AI_TOOLS = [
   "ChatGPT",
   "Claude / Claude Code",
-  "Google AI Studio",
+  "Google AI Studio / Google Veo / Nano Banana",
   "DALL-E",
   "Adobe Firefly",
   "Suno (AI music generation)",
