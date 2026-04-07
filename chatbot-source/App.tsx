@@ -3,7 +3,6 @@ import ConsentGate from './components/ConsentGate';
 import EmployerChat from './components/EmployerChat';
 import AdminPanel from './components/AdminPanel';
 import { CandidateProfile, AppMode } from './types';
-import { generateSpeech } from './services/geminiService';
 
 const GREETING_TEXT = `Hello! I am Ivan's AI Assistant. I'm here to help you explore Ivan's expertise as an AI Media & Content Designer, AI Workflow Specialist, and VFX Compositor.\n\nFeel free to write in your preferred language — I speak many languages.\n\nI operate under strict GDPR guidelines—you can delete your chat history at any time using the trash icon in the top right. How can I help you today?`;
 
@@ -96,17 +95,16 @@ const App: React.FC = () => {
     ctx.resume();
     consentCtxRef.current = ctx;
     setHasConsented(true);
-    setChatReady(true); // Show chat UI immediately (user sees the interface, not a blank spinner)
-    // Fetch greeting audio — only contacted after explicit consent (GDPR compliant)
-    // When audio arrives: play it and start the greeting text at the same time (synchronized)
-    generateSpeech(GREETING_TEXT)
-      .then(audio => {
-        if (audio && consentCtxRef.current) playGreeting(consentCtxRef.current, audio);
-        setGreetingReady(true); // triggers typewriter text to start simultaneously with audio
+    setChatReady(true);
+    setGreetingReady(true); // show greeting text immediately — no API wait
+    // Load pre-generated static audio in background (public/greeting.b64)
+    // To regenerate: npm run generate-greeting
+    fetch('/chatbot/greeting.b64')
+      .then(r => r.text())
+      .then(b64 => {
+        if (b64 && consentCtxRef.current) playGreeting(consentCtxRef.current, b64.trim());
       })
-      .catch(() => {
-        setGreetingReady(true); // audio failed — show greeting text anyway
-      });
+      .catch(() => {}); // silent fail — text is already showing
   };
 
   const stopGreeting = () => {
