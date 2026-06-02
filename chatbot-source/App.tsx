@@ -4,7 +4,10 @@ import EmployerChat from './components/EmployerChat';
 import AdminPanel from './components/AdminPanel';
 import { CandidateProfile, AppMode } from './types';
 
-const GREETING_TEXT = `Hello! I am Ivan's AI Assistant. I'm here to help you explore Ivan's expertise as an AI Media & Content Designer, AI Workflow Specialist, and VFX Compositor.\n\nFeel free to write in your preferred language — I speak many languages.\n\nI operate under strict GDPR guidelines—you can delete your chat history at any time using the trash icon in the top right. How can I help you today?`;
+const GREETING_TEXTS: Record<string, string> = {
+  en: `Hello! I am Ivan's AI Assistant. I'm here to help you explore Ivan's expertise as an AI Media & Content Designer, AI Workflow Specialist, and VFX Compositor.\n\nFeel free to write in your preferred language — I speak many languages.\n\nI operate under strict GDPR guidelines—you can delete your chat history at any time using the trash icon in the top right. How can I help you today?`,
+  de: `Hallo! Ich bin Ivans KI-Assistent. Ich helfe Ihnen dabei, Ivans Expertise als KI-Medien- und Content-Designer, KI-Workflow-Spezialist und VFX-Compositor kennenzulernen.\n\nSie können gerne in Ihrer bevorzugten Sprache schreiben – ich spreche viele Sprachen.\n\nIch arbeite nach strengen DSGVO-Richtlinien – Sie können Ihren Chatverlauf jederzeit über das Papierkorb-Symbol oben rechts löschen. Wie kann ich Ihnen heute helfen?`,
+};
 
 const DEFAULT_PROFILE: CandidateProfile = {
   name: 'Ivan',
@@ -48,6 +51,7 @@ PROFESSIONAL BACKGROUND:
 
 
 const App: React.FC = () => {
+  const lang = new URLSearchParams(window.location.search).get('lang') ?? 'en';
   const alreadyConsented = localStorage.getItem('ivan_consent') === 'true';
   const [hasConsented, setHasConsented] = useState(alreadyConsented);
   const [chatReady, setChatReady] = useState(alreadyConsented);
@@ -99,7 +103,8 @@ const App: React.FC = () => {
     setGreetingReady(true); // show greeting text immediately — no API wait
     // Load pre-generated static audio in background (public/greeting.b64)
     // To regenerate: npm run generate-greeting
-    fetch('/chatbot/greeting.b64')
+    const greetingFile = lang === 'de' ? '/chatbot/greeting-de.b64' : '/chatbot/greeting.b64';
+    fetch(greetingFile)
       .then(r => r.text())
       .then(b64 => {
         if (b64 && consentCtxRef.current) playGreeting(consentCtxRef.current, b64.trim());
@@ -133,7 +138,7 @@ const App: React.FC = () => {
     <div className="h-full w-full relative bg-burning-orange-50">
       {!hasConsented && (
         <div className="flex flex-col h-full w-full items-center justify-center">
-          <ConsentGate onConsent={handleConsent} />
+          <ConsentGate onConsent={handleConsent} lang={lang} />
         </div>
       )}
 
@@ -155,7 +160,7 @@ const App: React.FC = () => {
       {hasConsented && chatReady && mode === AppMode.EMPLOYER && (
         <EmployerChat
           profile={profile}
-          greetingText={GREETING_TEXT}
+          greetingText={GREETING_TEXTS[lang] ?? GREETING_TEXTS.en}
           greetingReady={greetingReady}
           onStopGreeting={stopGreeting}
         />

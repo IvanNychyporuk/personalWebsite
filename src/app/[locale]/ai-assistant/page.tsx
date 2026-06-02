@@ -20,7 +20,7 @@ export default async function AiAssistantPage({
         <p className={styles.lead}>{dict.aiAssistant.lead}</p>
         <div className={styles.frame}>
           <iframe
-            src="/chatbot/index.html"
+            src={`/chatbot/index.html?lang=${locale}`}
             className={styles.iframe}
             title="AI Assistant"
             allow="autoplay"
